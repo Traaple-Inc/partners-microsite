@@ -1,20 +1,23 @@
+/* Import local fonts */
+@import './css/fonts.css';
+
 /*
  * Traaple Partner Microsite Styles
  *
  * This stylesheet defines the visual language for the partner landing
- * pages. It takes cues from Traaple’s existing design system by using
- * the Inter and Work Sans typefaces, a vibrant primary colour and
+ * pages. It takes cues from Traaple's existing design system by using
+ * the Mont and Inter typefaces, a vibrant primary colour and
  * generous rounded corners. Sections are spaced with plenty of
  * breathing room and adapt gracefully to mobile screens.
  */
 
 :root {
-  /* Brand colours derived from Traaple’s design system.
+  /* Brand colours derived from Traaple's design system.
      Primary blue is used for calls‑to‑action and accents.
      Secondary and accent shades support colourful highlights
      seen across the official site. */
-  --primary-color: #0057ff;
-  --primary-hover: #0043cc;
+  --primary-color: #005fc5;
+  --primary-hover: #025bbb;
   --secondary-color: #f5f7ff;
   --accent1: #8738f9;
   --accent2: #f99033;
@@ -22,9 +25,9 @@
   --accent4: #f04254;
   --text-color: #1a1a1a;
   --background-color: #ffffff;
-  /* Use the Mont family for both headings and body copy. Inter remains as a fallback. */
-  --heading-font: 'Mont', sans-serif;
-  --body-font: 'Mont', sans-serif;
+  /* Use the Mont family for headings and Inter for body copy, matching traaple-home */
+  --heading-font: var(--font-primary);
+  --body-font: var(--font-secondary);
 }
 
 * {
@@ -39,6 +42,25 @@ body {
   background-color: var(--background-color);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+}
+
+p,
+span,
+div,
+label,
+input,
+button {
+  font-family: var(--body-font);
 }
 
 /* Navigation */
@@ -126,11 +148,10 @@ section {
   .earnings h2,
   .benefits h2,
   .contact-form h2 {
-  font-family: var(--heading-font);
-  /* Medium weight for section headings to create clear hierarchy */
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  font-size: 2.2rem;
+font-family: var(--heading-font);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
 /* Steps */
@@ -181,7 +202,7 @@ section {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   /* Medium weight for step titles to make them stand out */
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .step p {
@@ -259,7 +280,7 @@ section {
   font-size: 1.2rem;
   margin-bottom: 0.3rem;
   /* Medium weight for benefit titles to create clear hierarchy */
-  font-weight: 500;
+  font-weight: 600;
 }
 .benefit-card p {
   font-size: 0.95rem;
@@ -386,7 +407,7 @@ input::placeholder {
 .secondary-cta .cta-content-box h2 {
   font-family: var(--heading-font);
   /* Medium weight for the CTA heading to make it prominent */
-  font-weight: 500;
+  font-weight: 600;
   font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
