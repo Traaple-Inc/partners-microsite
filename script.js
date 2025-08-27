@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
    * - thankYouImage: relative path to the image shown in the thank‑you overlay
    * - secondaryHeadline, secondarySubtext: copy for the secondary call to action
    */
+  // Partner definitions for every type.  Each entry contains hero copy, step text,
+  // earnings examples, benefits, form labels and imagery.  Additional
+  // partner types beyond influencer and hotel have been included below to
+  // support venues, conferences, blogs and nightlife partners.
   const partnerData = {
     influencer: {
       headline: 'Turn Your Posts Into Extra Income',
@@ -61,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
       heroImage: 'assets/influencer_hero.jpg',
       thankYouImage: 'assets/influencer_hero.jpg',
       secondaryHeadline: 'Ready to earn extra income?',
-      secondarySubtext: 'Join Traaple and start turning your posts into profits.'
-      ,
+      secondarySubtext: 'Join Traaple and start turning your posts into profits.',
       ctaBackground: 'assets/forest.png'
     },
     hotel: {
@@ -99,160 +102,167 @@ document.addEventListener('DOMContentLoaded', function () {
       heroImage: 'assets/hotel_hero.jpg',
       thankYouImage: 'assets/hotel_hero.jpg',
       secondaryHeadline: 'Ready to boost guest revenue?',
-      secondarySubtext: 'Partner with Traaple and monetise every stay.'
-      ,
+      secondarySubtext: 'Partner with Traaple and monetise every stay.',
       ctaBackground: 'assets/forest.png'
     },
+    // Venue partners represent restaurants, clubs, or event spaces that want to monetise their spaces.
     venue: {
-      headline: 'Turn Your Venue Into A Revenue Hub',
+      headline: 'Unlock New Revenue from Your Venue',
       subtext:
-        'Display QR codes at your venue. Customers discover experiences – you earn commissions.',
+        'Let guests discover and book dining or event experiences at your location.',
       steps: [
         {
-          title: 'Display QR Codes',
-          description: 'Place QR codes at tables, bars or reception areas.'
+          title: 'Display Codes',
+          description: 'Place QR codes or promotional screens throughout your venue.'
         },
         {
-          title: 'Customers Scan',
-          description: 'Customers discover and book local experiences instantly.'
+          title: 'Guests Book',
+          description: 'Customers book curated experiences through your unique link.'
         },
         {
-          title: 'You Earn',
-          description: 'Earn commission on every booking with zero effort.'
+          title: 'Earn',
+          description: 'You earn commission on every booking with zero overhead.'
         }
       ],
-      example: 'Customer books a ₵1,500 experience = You earn ₵75 commission.',
+      example:
+        'Guests spend ₵1,500 on a dinner package — you earn ₵300 in commission.',
       benefits: [
-        'New passive income stream for your venue.',
-        'Enhance customer experience with local recommendations.',
-        'Zero overhead – we handle everything for you.',
-        'Real-time tracking and automated payments.'
+        'Fill empty tables and time slots with high‑value bookings.',
+        'Attract new customers through Traaple’s discovery platform.',
+        'Access analytics to track bookings and revenue.',
+        'We handle marketing, payments and support for you.'
       ],
       formLabels: {
         name: 'Name',
         organization: 'Venue Name',
         phone: 'Phone Number',
-        experiencePlaceholder: 'e.g. Food, Drinks, Entertainment'
+        experiencePlaceholder: 'e.g. Dinners, Events, Parties'
       },
-      heroImage: 'assets/hero.png',
-      thankYouImage: 'assets/hero.png',
-      secondaryHeadline: 'Ready to boost venue revenue?',
-      secondarySubtext: 'Partner with Traaple and turn visits into earnings.',
+      heroImage: 'assets/venue_hero.jpg',
+      thankYouImage: 'assets/venue_hero.jpg',
+      secondaryHeadline: 'Ready to fill seats and earn more?',
+      secondarySubtext: 'Partner with Traaple to monetise your venue.',
       ctaBackground: 'assets/forest.png'
     },
+    // Conference and event partners promote add‑on experiences to attendees.
     conference: {
-      headline: 'Enhance Your Event Experience',
+      headline: 'Monetise Your Conference Attendees',
       subtext:
-        'Give attendees curated local experiences while earning commissions on every booking.',
+        'Offer curated experiences to your attendees and earn commissions on every booking.',
       steps: [
         {
-          title: 'Share Link',
-          description: 'Include your referral link in event materials and apps.'
+          title: 'Promote Experiences',
+          description: 'Share links or QR codes in your event materials and communications.'
         },
         {
           title: 'Attendees Book',
-          description: 'Attendees discover and book local experiences during their stay.'
+          description: 'Guests book tours, workshops and activities during or after the event.'
         },
         {
-          title: 'You Earn',
-          description: 'Earn commission on every booking made by your attendees.'
+          title: 'Earn',
+          description: 'You earn a commission on every booking automatically.'
         }
       ],
-      example: '50 attendees book experiences averaging ₵800 = You earn ₵2,000.',
+      example:
+        '50 attendees book ₵3,000 activities — you earn ₵750 in commission.',
       benefits: [
-        'Monetise your event beyond ticket sales.',
-        'Enhance attendee experience with local activities.',
-        'Automated commission tracking and payments.',
-        'Custom branding options for larger events.'
+        'Enhance your event with unforgettable add‑on experiences.',
+        'Increase revenue without raising ticket prices.',
+        'Access dashboards to track bookings and attendee engagement.',
+        'Support for logistics, payments and customer service.'
       ],
       formLabels: {
         name: 'Name',
-        organization: 'Event/Conference Name',
+        organization: 'Conference / Event Name',
         phone: 'Phone Number',
-        experiencePlaceholder: 'e.g. Networking, Tours, Dining'
+        experiencePlaceholder: 'e.g. Tours, Workshops, Activities'
       },
-      heroImage: 'assets/hero.png',
-      thankYouImage: 'assets/hero.png',
-      secondaryHeadline: 'Ready to enhance your event?',
-      secondarySubtext: 'Partner with Traaple and create memorable experiences.',
+      heroImage: 'assets/conference_hero.jpg',
+      thankYouImage: 'assets/conference_hero.jpg',
+      secondaryHeadline: 'Ready to elevate your event?',
+      secondarySubtext: 'Partner with Traaple to offer curated experiences to attendees.',
       ctaBackground: 'assets/forest.png'
     },
+    // Lifestyle blogs and media partners embed experiences into their content.
     blog: {
-      headline: 'Monetise Your Travel Content',
+      headline: 'Turn Your Blog into a Revenue Stream',
       subtext:
-        'Write about amazing places and experiences. Your readers book them – you earn commissions.',
+        'Embed curated African experiences into your articles and earn when readers book.',
       steps: [
         {
-          title: 'Write & Link',
-          description: 'Write about experiences and include your referral links.'
+          title: 'Create Content',
+          description: 'Write about your favourite places and embed your referral link.'
         },
         {
           title: 'Readers Book',
-          description: 'Your audience books experiences through your links.'
+          description: 'They book experiences directly through your blog or media page.'
         },
         {
-          title: 'You Earn',
-          description: 'Earn commission on every booking from your content.'
+          title: 'Earn',
+          description: 'You earn commission on every confirmed booking.'
         }
       ],
-      example: 'Blog post generates 20 bookings averaging ₵1,200 = You earn ₵1,200.',
+      example:
+        '20 readers book a ₵2,000 adventure — you earn ₵400 in commission.',
       benefits: [
-        'Turn your passion for travel into income.',
-        'Earn from content you already create.',
-        'Access to exclusive experiences to review.',
-        'Detailed analytics on your referral performance.'
+        'Add value to your content with authentic travel recommendations.',
+        'Engage your audience with bookable experiences.',
+        'Track your earnings and bookings via dashboards.',
+        'Dedicated support to optimise your monetisation strategy.'
       ],
       formLabels: {
         name: 'Name',
-        organization: 'Blog/Website Name',
+        organization: 'Blog / Media Name',
         phone: 'Phone Number',
-        experiencePlaceholder: 'e.g. Travel, Food, Culture'
+        experiencePlaceholder: 'e.g. Travel, Culture, Food'
       },
-      heroImage: 'assets/hero.png',
-      thankYouImage: 'assets/hero.png',
+      // Fall back to the influencer hero image until a dedicated blog hero is supplied.
+      heroImage: 'assets/influencer_hero.jpg',
+      thankYouImage: 'assets/influencer_hero.jpg',
       secondaryHeadline: 'Ready to monetise your content?',
-      secondarySubtext: 'Join Traaple and turn your travel stories into income.',
+      secondarySubtext: 'Partner with Traaple and turn your stories into bookings.',
       ctaBackground: 'assets/forest.png'
     },
+    // Nightlife and entertainment partners promote experiences after dark.
     nightlife: {
-      headline: 'Boost Your Nightlife Revenue',
+      headline: 'Earn More from Every Night Out',
       subtext:
-        'Connect your customers to the best after-hours experiences and earn on every booking.',
+        'Let patrons discover nightlife and entertainment experiences through your link and earn commissions.',
       steps: [
         {
-          title: 'Promote',
-          description: 'Share nightlife experiences with your customers and followers.'
+          title: 'Promote Your Link',
+          description: 'Display your referral link or QR codes in your bar, lounge or club.'
         },
         {
-          title: 'They Book',
-          description: 'Customers book clubs, bars, and events through your link.'
+          title: 'Guests Book',
+          description: 'They book exclusive events and experiences nearby.'
         },
         {
-          title: 'You Earn',
-          description: 'Earn commission on every nightlife booking you generate.'
+          title: 'Earn',
+          description: 'You earn a commission on every booking — no extra staff needed.'
         }
       ],
-      example: 'Weekend promotion generates 15 bookings = You earn ₵900.',
+      example:
+        '5 patrons book a ₵1,500 nightlife experience — you earn ₵150.',
       benefits: [
-        'New revenue stream from nightlife connections.',
-        'Help customers discover the best nightlife.',
-        'Earn while building your network in the scene.',
-        'Weekly commission payouts and detailed tracking.'
+        'Drive additional revenue from off‑peak hours.',
+        'Offer guests curated nightlife experiences they’ll love.',
+        'Real‑time dashboards to monitor your earnings.',
+        'We handle bookings, payments and guest support.'
       ],
       formLabels: {
         name: 'Name',
-        organization: 'Business/Brand Name',
+        organization: 'Venue Name',
         phone: 'Phone Number',
-        experiencePlaceholder: 'e.g. Clubs, Bars, Events'
+        experiencePlaceholder: 'e.g. Bars, Parties, Live Music'
       },
-      heroImage: 'assets/hero.png',
-      thankYouImage: 'assets/hero.png',
-      secondaryHeadline: 'Ready to amplify nightlife?',
-      secondarySubtext: 'Partner with Traaple and earn from the nightlife scene.',
+      // Reuse the venue hero until a dedicated nightlife hero image is provided.
+      heroImage: 'assets/venue_hero.jpg',
+      thankYouImage: 'assets/venue_hero.jpg',
+      secondaryHeadline: 'Ready to turn nights into revenue?',
+      secondarySubtext: 'Partner with Traaple and monetise nightlife experiences.',
       ctaBackground: 'assets/forest.png'
     }
-    // Additional partner types can be added here as needed.
-
   };
 
   // Determine copy based on partner type; default to influencer if unspecified
@@ -265,8 +275,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Update hero background image
   const heroSection = document.querySelector('.hero');
   if (heroSection) {
+    // Use a slightly lighter gradient overlay on top of the hero image so that
+    // the underlying photo remains visible while still providing sufficient
+    // contrast for the white text. Adjust the alpha values here to taste.
     heroSection.style.backgroundImage =
-      `linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35)), url('${data.heroImage}')`;
+      `linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25)), url('${data.heroImage}')`;
   }
 
   // Update steps
