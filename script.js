@@ -394,15 +394,56 @@ document.addEventListener('DOMContentLoaded', function () {
   // Handle form submission
   const form = document.getElementById('partnerForm');
   if (form) {
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', async function (event) {
       event.preventDefault();
-      // Show thank you overlay
-      const overlay = document.getElementById('thankYouOverlay');
-      if (overlay) {
-        overlay.style.display = 'flex';
+      
+      // Get form data
+      const formData = new FormData(form);
+      const submitData = {
+        name: formData.get('name'),
+        organization: formData.get('organization'),
+        phone: formData.get('phone'),
+        partnerType: type,
+        referralCode: ref
+      };
+
+      // Disable submit button during submission
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+
+      try {
+        // Submit to API
+        const response = await fetch('https://api.traaple.com/api/partners/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(submitData)
+        });
+
+        if (response.ok) {
+          // Show thank you overlay on success
+          const overlay = document.getElementById('thankYouOverlay');
+          if (overlay) {
+            overlay.classList.remove('hidden');
+          }
+          // Reset form inputs
+          form.reset();
+        } else {
+          // Handle API error
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        // Show error message to user
+        alert('There was an error submitting your application. Please try again or contact support.');
+      } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
       }
-      // Reset form inputs
-      form.reset();
     });
   }
 
@@ -412,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function () {
     closeBtn.addEventListener('click', function () {
       const overlay = document.getElementById('thankYouOverlay');
       if (overlay) {
-        overlay.style.display = 'none';
+        overlay.classList.add('hidden');
       }
     });
   }
@@ -423,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function () {
     overlayEl.addEventListener('click', function (event) {
       // If the click target is the overlay itself (not inside the content box), hide it
       if (event.target === overlayEl) {
-        overlayEl.style.display = 'none';
+        overlayEl.classList.add('hidden');
       }
     });
   }
