@@ -102,8 +102,157 @@ document.addEventListener('DOMContentLoaded', function () {
       secondarySubtext: 'Partner with Traaple and monetise every stay.'
       ,
       ctaBackground: 'assets/forest.png'
+    },
+    venue: {
+      headline: 'Turn Your Venue Into A Revenue Hub',
+      subtext:
+        'Display QR codes at your venue. Customers discover experiences – you earn commissions.',
+      steps: [
+        {
+          title: 'Display QR Codes',
+          description: 'Place QR codes at tables, bars or reception areas.'
+        },
+        {
+          title: 'Customers Scan',
+          description: 'Customers discover and book local experiences instantly.'
+        },
+        {
+          title: 'You Earn',
+          description: 'Earn commission on every booking with zero effort.'
+        }
+      ],
+      example: 'Customer books a ₵1,500 experience = You earn ₵75 commission.',
+      benefits: [
+        'New passive income stream for your venue.',
+        'Enhance customer experience with local recommendations.',
+        'Zero overhead – we handle everything for you.',
+        'Real-time tracking and automated payments.'
+      ],
+      formLabels: {
+        name: 'Name',
+        organization: 'Venue Name',
+        phone: 'Phone Number',
+        experiencePlaceholder: 'e.g. Food, Drinks, Entertainment'
+      },
+      heroImage: 'assets/hero.png',
+      thankYouImage: 'assets/hero.png',
+      secondaryHeadline: 'Ready to boost venue revenue?',
+      secondarySubtext: 'Partner with Traaple and turn visits into earnings.',
+      ctaBackground: 'assets/forest.png'
+    },
+    conference: {
+      headline: 'Enhance Your Event Experience',
+      subtext:
+        'Give attendees curated local experiences while earning commissions on every booking.',
+      steps: [
+        {
+          title: 'Share Link',
+          description: 'Include your referral link in event materials and apps.'
+        },
+        {
+          title: 'Attendees Book',
+          description: 'Attendees discover and book local experiences during their stay.'
+        },
+        {
+          title: 'You Earn',
+          description: 'Earn commission on every booking made by your attendees.'
+        }
+      ],
+      example: '50 attendees book experiences averaging ₵800 = You earn ₵2,000.',
+      benefits: [
+        'Monetise your event beyond ticket sales.',
+        'Enhance attendee experience with local activities.',
+        'Automated commission tracking and payments.',
+        'Custom branding options for larger events.'
+      ],
+      formLabels: {
+        name: 'Name',
+        organization: 'Event/Conference Name',
+        phone: 'Phone Number',
+        experiencePlaceholder: 'e.g. Networking, Tours, Dining'
+      },
+      heroImage: 'assets/hero.png',
+      thankYouImage: 'assets/hero.png',
+      secondaryHeadline: 'Ready to enhance your event?',
+      secondarySubtext: 'Partner with Traaple and create memorable experiences.',
+      ctaBackground: 'assets/forest.png'
+    },
+    blog: {
+      headline: 'Monetise Your Travel Content',
+      subtext:
+        'Write about amazing places and experiences. Your readers book them – you earn commissions.',
+      steps: [
+        {
+          title: 'Write & Link',
+          description: 'Write about experiences and include your referral links.'
+        },
+        {
+          title: 'Readers Book',
+          description: 'Your audience books experiences through your links.'
+        },
+        {
+          title: 'You Earn',
+          description: 'Earn commission on every booking from your content.'
+        }
+      ],
+      example: 'Blog post generates 20 bookings averaging ₵1,200 = You earn ₵1,200.',
+      benefits: [
+        'Turn your passion for travel into income.',
+        'Earn from content you already create.',
+        'Access to exclusive experiences to review.',
+        'Detailed analytics on your referral performance.'
+      ],
+      formLabels: {
+        name: 'Name',
+        organization: 'Blog/Website Name',
+        phone: 'Phone Number',
+        experiencePlaceholder: 'e.g. Travel, Food, Culture'
+      },
+      heroImage: 'assets/hero.png',
+      thankYouImage: 'assets/hero.png',
+      secondaryHeadline: 'Ready to monetise your content?',
+      secondarySubtext: 'Join Traaple and turn your travel stories into income.',
+      ctaBackground: 'assets/forest.png'
+    },
+    nightlife: {
+      headline: 'Boost Your Nightlife Revenue',
+      subtext:
+        'Connect your customers to the best after-hours experiences and earn on every booking.',
+      steps: [
+        {
+          title: 'Promote',
+          description: 'Share nightlife experiences with your customers and followers.'
+        },
+        {
+          title: 'They Book',
+          description: 'Customers book clubs, bars, and events through your link.'
+        },
+        {
+          title: 'You Earn',
+          description: 'Earn commission on every nightlife booking you generate.'
+        }
+      ],
+      example: 'Weekend promotion generates 15 bookings = You earn ₵900.',
+      benefits: [
+        'New revenue stream from nightlife connections.',
+        'Help customers discover the best nightlife.',
+        'Earn while building your network in the scene.',
+        'Weekly commission payouts and detailed tracking.'
+      ],
+      formLabels: {
+        name: 'Name',
+        organization: 'Business/Brand Name',
+        phone: 'Phone Number',
+        experiencePlaceholder: 'e.g. Clubs, Bars, Events'
+      },
+      heroImage: 'assets/hero.png',
+      thankYouImage: 'assets/hero.png',
+      secondaryHeadline: 'Ready to amplify nightlife?',
+      secondarySubtext: 'Partner with Traaple and earn from the nightlife scene.',
+      ctaBackground: 'assets/forest.png'
     }
-    // Additional partner types (venue, conference, blog, nightlife) can be added here as needed.
+    // Additional partner types can be added here as needed.
+
   };
 
   // Determine copy based on partner type; default to influencer if unspecified
