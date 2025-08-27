@@ -350,18 +350,32 @@ document.addEventListener('DOMContentLoaded', function () {
   // Referral link for CTAs
   const referralLink = `https://traaple.com/signup?ref=${encodeURIComponent(ref)}`;
 
-  // Add click handlers for CTAs
-  document.getElementById('heroCTA').addEventListener('click', () => {
-    window.location.href = referralLink;
+  // Function to scroll to the form section
+  function scrollToForm() {
+    const formSection = document.querySelector('.secondary-cta');
+    if (formSection) {
+      formSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  // Add click handlers for CTAs - scroll to form instead of external redirect
+  document.getElementById('heroCTA').addEventListener('click', (e) => {
+    e.preventDefault();
+    scrollToForm();
   });
-  document.getElementById('ctaHeader').addEventListener('click', () => {
-    window.location.href = referralLink;
+  document.getElementById('ctaHeader').addEventListener('click', (e) => {
+    e.preventDefault();
+    scrollToForm();
   });
-  // Assign referral link to the secondary CTA if it exists (the form has replaced this button on most pages)
+  // Assign scroll behavior to the secondary CTA if it exists (the form has replaced this button on most pages)
   const secondaryCTAButton = document.getElementById('secondaryCTA');
   if (secondaryCTAButton) {
-    secondaryCTAButton.addEventListener('click', () => {
-      window.location.href = referralLink;
+    secondaryCTAButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToForm();
     });
   }
 
