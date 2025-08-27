@@ -384,7 +384,8 @@ label {
 }
 
 input[type="text"],
-input[type="tel"] {
+input[type="tel"],
+select {
   width: 100%;
   padding: 0.8rem;
   border: 2px solid #e1e5e9;
@@ -395,10 +396,30 @@ input[type="tel"] {
 }
 
 input[type="text"]:focus,
-input[type="tel"]:focus {
+input[type="tel"]:focus,
+select:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);
+}
+
+/* Input with dropdown layout for influencer platform selection */
+.input-with-dropdown {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.platform-dropdown {
+  flex: 0 0 140px;
+  min-width: 140px;
+}
+
+.platform-dropdown.hidden {
+  display: none;
+}
+
+.input-with-dropdown input[type="text"] {
+  flex: 1;
 }
 
 /* Style placeholder text */
@@ -502,7 +523,8 @@ input::placeholder {
   font-size: 1rem;
 }
 .secondary-cta .cta-form input[type="text"],
-.secondary-cta .cta-form input[type="tel"] {
+.secondary-cta .cta-form input[type="tel"],
+.secondary-cta .cta-form select {
   width: 100%;
   padding: 0.8rem;
   border: 2px solid #e1e5e9;
@@ -513,7 +535,8 @@ input::placeholder {
 }
 
 .secondary-cta .cta-form input[type="text"]:focus,
-.secondary-cta .cta-form input[type="tel"]:focus {
+.secondary-cta .cta-form input[type="tel"]:focus,
+.secondary-cta .cta-form select:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);

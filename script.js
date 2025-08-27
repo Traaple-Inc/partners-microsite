@@ -333,6 +333,18 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('label[for="organization"]').textContent = data.formLabels.organization;
   document.querySelector('label[for="phone"]').textContent = data.formLabels.phone;
 
+  // Show/hide platform dropdown based on partner type
+  const platformDropdown = document.getElementById('platform');
+  if (platformDropdown) {
+    if (type === 'influencer') {
+      platformDropdown.classList.remove('hidden');
+      platformDropdown.required = true;
+    } else {
+      platformDropdown.classList.add('hidden');
+      platformDropdown.required = false;
+    }
+  }
+
   // Update secondary CTA copy
   document.getElementById('secondaryHeadline').textContent = data.secondaryHeadline;
   document.getElementById('secondarySubtext').textContent = data.secondarySubtext;
@@ -399,6 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
         name: formData.get('name'),
         organization: formData.get('organization'),
         phone: formData.get('phone'),
+        platform: formData.get('platform') || null,
         partnerType: type,
         referralCode: ref
       };
