@@ -332,7 +332,6 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('label[for="name"]').textContent = data.formLabels.name;
   document.querySelector('label[for="organization"]').textContent = data.formLabels.organization;
   document.querySelector('label[for="phone"]').textContent = data.formLabels.phone;
-  document.getElementById('experience').placeholder = data.formLabels.experiencePlaceholder;
 
   // Update secondary CTA copy
   document.getElementById('secondaryHeadline').textContent = data.secondaryHeadline;
@@ -349,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to scroll to the form section
   function scrollToForm() {
-    const formSection = document.querySelector('.secondary-cta');
+    const formSection = document.getElementById('partnerForm');
     if (formSection) {
       formSection.scrollIntoView({ 
         behavior: 'smooth',
@@ -465,24 +464,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
-
-  // Add scroll functionality to "Start Earning" buttons
-  function scrollToForm() {
-    const form = document.getElementById('partnerForm');
-    if (form) {
-      form.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  }
-
-  // Add click handlers to all "Start Earning" buttons
-  const ctaButtons = ['ctaHeader', 'heroCTA'];
-  ctaButtons.forEach(buttonId => {
-    const button = document.getElementById(buttonId);
-    if (button) {
-      button.addEventListener('click', scrollToForm);
-    }
-  });
 });
