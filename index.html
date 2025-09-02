@@ -32,26 +32,6 @@
     </div>
   </section>
 
-  <section class="steps">
-    <h2>How it works</h2>
-    <div class="step-list">
-      <div class="step">
-        <div class="step-icon">1</div>
-        <h3>Share</h3>
-        <p>Create posts or place QR codes with your referral link.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">2</div>
-        <h3>Book</h3>
-        <p>Your audience books unforgettable experiences through Traaple.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">3</div>
-        <h3>Earn</h3>
-        <p>You earn commission on every completed booking.</p>
-      </div>
-    </div>
-  </section>
 
   <section class="earnings">
     <div class="container">
@@ -60,35 +40,41 @@
     </div>
   </section>
 
-  <section class="benefits">
+  <section class="partner-details">
     <h2>Why partner with Traaple?</h2>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-image"></div>
-        <div>
-          <h3>Passive Income</h3>
-          <p>Earn money on every booking with zero extra effort.</p>
-        </div>
+    <div class="tabs">
+      <div class="tab-nav">
+        <button class="tab-button active" data-tab="problem">Problem</button>
+        <button class="tab-button" data-tab="solution">Solution</button>
+        <button class="tab-button" data-tab="how-it-works">How it Works</button>
+        <button class="tab-button" data-tab="demo">Demo</button>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-image"></div>
-        <div>
-          <h3>Reach Travellers</h3>
-          <p>Get discovered by explorers from all over Africa and beyond.</p>
+      
+      <div class="tab-content">
+        <div id="problem-tab" class="tab-panel active">
+          <div class="problem-content" id="problemContent">
+            <!-- Dynamic problem content -->
+          </div>
         </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-image"></div>
-        <div>
-          <h3>Effortless Growth</h3>
-          <p>We handle bookings, payments and support so you can focus on what you do best.</p>
+        
+        <div id="solution-tab" class="tab-panel">
+          <div class="solution-content" id="solutionContent">
+            <!-- Dynamic solution content -->
+          </div>
         </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-image"></div>
-        <div>
-          <h3>Insights & Support</h3>
-          <p>Access dashboards to track referrals and earnings, with dedicated partner support.</p>
+        
+        <div id="how-it-works-tab" class="tab-panel">
+          <div class="steps-content">
+            <div class="step-list" id="tabStepList">
+              <!-- Steps will be moved here -->
+            </div>
+          </div>
+        </div>
+        
+        <div id="demo-tab" class="tab-panel">
+          <div class="demo-content" id="demoContent">
+            <!-- Demo content will be moved here -->
+          </div>
         </div>
       </div>
     </div>
@@ -104,8 +90,12 @@
         <!-- Lead capture form placed directly inside the CTA card; this replaces the separate contact-form section -->
         <form id="partnerForm" class="cta-form">
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Your Name</label>
             <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
           </div>
           <div class="form-group">
             <label for="organization">Organization / Handle</label>
@@ -123,9 +113,43 @@
               <input type="text" id="organization" name="organization" required />
             </div>
           </div>
+          <div class="form-group" id="locationGroup">
+            <label for="location">Location/City</label>
+            <input type="text" id="location" name="location" />
+          </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group" id="propertyTypeGroup">
+            <label for="propertyType">Property Type</label>
+            <select id="propertyType" name="propertyType">
+              <option value="">Select Type</option>
+              <option value="hotel">Hotel</option>
+              <option value="resort">Resort</option>
+              <option value="boutique">Boutique Hotel</option>
+              <option value="bnb">B&B</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="bar">Bar/Lounge</option>
+              <option value="event">Event Space</option>
+              <option value="rooftop">Rooftop</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group" id="nicheGroup">
+            <label for="niche">Content Niche</label>
+            <select id="niche" name="niche">
+              <option value="">Select Niche</option>
+              <option value="travel">Travel</option>
+              <option value="food">Food</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="fashion">Fashion</option>
+              <option value="beauty">Beauty</option>
+              <option value="fitness">Fitness</option>
+              <option value="tech">Tech</option>
+              <option value="business">Business</option>
+              <option value="other">Other</option>
+            </select>
           </div>
           <button type="submit" class="cta-button">Let's Get Started</button>
         </form>

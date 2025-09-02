@@ -11,8 +11,37 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Parse query parameters
   const params = new URLSearchParams(window.location.search);
-  const type = (params.get('type') || 'influencer').toLowerCase();
+  const typeParam = params.get('type');
   const ref = params.get('ref') || 'YOUR_REF_CODE';
+  
+  // Validate URL parameters
+  if (!typeParam) {
+    // Show 404 error for no parameter
+    document.body.innerHTML = `
+      <div style="text-align: center; padding: 4rem; font-family: 'Inter', sans-serif;">
+        <h1 style="font-size: 3rem; color: #333;">404</h1>
+        <p style="font-size: 1.2rem; color: #666;">Page not found. Please specify a valid partner type.</p>
+        <p style="color: #999;">Try: ?type=influencer, ?type=hotel, or ?type=venue</p>
+      </div>
+    `;
+    return;
+  }
+  
+  const type = typeParam.toLowerCase();
+  const supportedTypes = ['influencer', 'hotel', 'venue'];
+  
+  if (!supportedTypes.includes(type)) {
+    // Show "Coming Soon" for unsupported types
+    document.body.innerHTML = `
+      <div style="text-align: center; padding: 4rem; font-family: 'Inter', sans-serif;">
+        <h1 style="font-size: 2.5rem; color: #0057ff;">Coming Soon</h1>
+        <p style="font-size: 1.2rem; color: #666;">We're working on adding support for "${typeParam}" partners.</p>
+        <p style="color: #999;">Currently supported: Influencers, Hotels, and Venues</p>
+        <a href="?type=influencer" style="color: #0057ff; text-decoration: none;">← Try our Influencer Program</a>
+      </div>
+    `;
+    return;
+  }
 
   /*
    * Data definitions for each partner type.  Each entry includes:
@@ -31,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // support venues, conferences, blogs and nightlife partners.
   const partnerData = {
     influencer: {
+      title: 'Traaple Influencer Program',
       headline: 'Turn your influence into income',
       subtext:
         'You already post & share. Followers love your recommendations. But you don\'t earn.',
@@ -70,9 +100,41 @@ document.addEventListener('DOMContentLoaded', function () {
       thankYouImage: 'assets/influencer_hero.jpg',
       secondaryHeadline: 'Start monetizing your content now',
       secondarySubtext: 'Fill out the form below to join our program',
-      ctaBackground: 'assets/influencer/bg.jpg'
+      ctaBackground: 'assets/influencer/bg.jpg',
+      problemHeading: 'You already post & share. Followers love your recommendations. But you don\'t earn.',
+      problemContent: 'You create amazing content and get great engagement, but struggle to monetize your influence effectively.',
+      solutionHeading: 'With Traaple, your posts become bookable experiences. Earn commission every time someone books.',
+      solutionContent: 'Connect your social media presence to real bookable experiences and start earning from every recommendation.',
+      demoHeading: 'Example of influencer posts',
+      demoPosts: [
+        {
+          username: '@sarah_travels',
+          avatar: 'ST',
+          content: 'Just discovered this hidden gem in Bali! The sunset views are incredible 🌅',
+          cta: 'Book this experience'
+        },
+        {
+          username: '@foodie_mike',
+          avatar: 'FM',
+          content: 'Best pasta I\'ve ever had! This chef\'s table experience was unforgettable',
+          cta: 'Book this restaurant'
+        },
+        {
+          username: '@adventure_alex',
+          avatar: 'AA',
+          content: 'Epic hiking trail with the most amazing views! Perfect for adventure seekers',
+          cta: 'Book this hike'
+        },
+        {
+          username: '@luxury_lisa',
+          avatar: 'LL',
+          content: 'Weekend getaway at this boutique hotel was pure bliss. Highly recommend!',
+          cta: 'Book this hotel'
+        }
+      ]
     },
     hotel: {
+      title: 'Traaple Hotel Partners',
       headline: 'Enhance guest stays and earn more',
       subtext:
         'You don\'t always have answers when guests ask "What can I do nearby?"',
@@ -111,9 +173,29 @@ document.addEventListener('DOMContentLoaded', function () {
       thankYouImage: 'assets/hotel_hero.jpg',
       secondaryHeadline: 'Transform your guest stays now',
       secondarySubtext: 'Fill out the form below to join our program',
-      ctaBackground: 'assets/hotel/bg.jpg'
+      ctaBackground: 'assets/hotel/bg.jpg',
+      problemHeading: 'You don\'t always have answers when guests ask "What can I do nearby?"',
+      problemContent: 'Guests constantly ask for local recommendations, putting pressure on your staff and potentially impacting guest satisfaction.',
+      solutionHeading: 'Guests book experiences. You earn a share instantly.',
+      solutionContent: 'QR codes in rooms provide instant access to curated local experiences. Your guests get great recommendations, and you earn commission on every booking.',
+      demoHeading: 'Flyer → Experience booking',
+      demoPosts: [
+        {
+          username: 'Hotel Room 205',
+          avatar: 'QR',
+          content: 'Scan QR code to discover amazing local experiences',
+          cta: 'View Experiences'
+        },
+        {
+          username: 'Guest Experience',
+          avatar: 'GE',
+          content: 'Book guided city tours, local restaurants, and cultural activities',
+          cta: 'Book Now'
+        }
+      ]
     },
     venue: {
+      title: 'Traaple Venues Program',
       headline: 'Sell more tables and tickets',
       subtext:
         'Hard to fill events & drive consistent traffic.',
@@ -153,7 +235,26 @@ document.addEventListener('DOMContentLoaded', function () {
       thankYouImage: 'assets/venue_hero.jpg',
       secondaryHeadline: 'Boost attendance. Get listed today',
       secondarySubtext: 'Fill out the form below to join our program',
-      ctaBackground: 'assets/venue/bg.jpg'
+      ctaBackground: 'assets/venue/bg.jpg',
+      problemHeading: 'Hard to fill events & drive consistent traffic.',
+      problemContent: 'Empty tables and low attendance at events directly impact your revenue and reputation.',
+      solutionHeading: 'List your events/tables on Traaple. Customers discover & pre-book.',
+      solutionContent: 'Get discovered by customers looking for dining and entertainment experiences. Fill your venue with pre-booked guests.',
+      demoHeading: 'Event listing → Ticket booking',
+      demoPosts: [
+        {
+          username: 'Traaple Events',
+          avatar: 'TE',
+          content: 'Jazz Night at Sunset Lounge - Live music, cocktails, and great vibes',
+          cta: 'Buy Tickets'
+        },
+        {
+          username: 'Table Bookings',
+          avatar: 'TB',
+          content: 'Reserve your table for Chef\'s Special Dinner this Saturday',
+          cta: 'Book Table'
+        }
+      ]
     },
     // Conference and event partners promote add‑on experiences to attendees.
     conference: {
@@ -279,6 +380,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Determine copy based on partner type; default to influencer if unspecified
   const data = partnerData[type] || partnerData.influencer;
 
+  // Update page title
+  if (data.title) {
+    document.title = data.title;
+  }
+
+  // Update logo and body class based on industry type (only venue gets dark background)
+  const logo = document.querySelector('.logo-img');
+  document.body.className = ''; // Reset classes
+  
+  if (type === 'venue') {
+    if (logo) logo.src = 'assets/logo-white.svg';
+    document.body.classList.add('venue-bg');
+  } else {
+    if (logo) logo.src = 'assets/logo.svg';
+  }
+
   // Update hero text
   document.getElementById('heroHeadline').textContent = data.headline;
   document.getElementById('heroSubtext').textContent = data.subtext;
@@ -309,51 +426,56 @@ document.addEventListener('DOMContentLoaded', function () {
   // Update earnings example
   document.getElementById('earningsExample').textContent = data.example;
 
-  // Update benefits list
-  const benefitsGrid = document.querySelector('.benefits-grid');
-  if (benefitsGrid) {
-    // Define inline SVG icons corresponding to each benefit. The icons are pulled from
-    // Font Awesome’s solid set and embedded as strings so no external assets are required.
-    const iconsSVG = [
-      ''
-    ];
-    // Clear existing benefit cards
-    benefitsGrid.innerHTML = '';
-    data.benefits.forEach((benefit, idx) => {
-      const card = document.createElement('div');
-      card.className = 'benefit-card';
-      const icon = document.createElement('div');
-      icon.className = 'benefit-icon';
-      // Inject the SVG icon for this benefit; the colour comes from CSS
-      icon.innerHTML = iconsSVG[idx % iconsSVG.length];
-      const textWrapper = document.createElement('div');
-      const heading = document.createElement('h3');
-      heading.textContent = benefit.split('.')[0];
-      const paragraph = document.createElement('p');
-      paragraph.textContent = benefit;
-      textWrapper.appendChild(heading);
-      textWrapper.appendChild(paragraph);
-      card.appendChild(icon);
-      card.appendChild(textWrapper);
-      benefitsGrid.appendChild(card);
-    });
-  }
+  // Update tab content
+  updateTabContent(data);
+
+  // Initialize tabs
+  initializeTabs();
+
 
   // Update form labels and placeholders
   document.querySelector('label[for="name"]').textContent = data.formLabels.name;
   document.querySelector('label[for="organization"]').textContent = data.formLabels.organization;
   document.querySelector('label[for="phone"]').textContent = data.formLabels.phone;
 
-  // Show/hide platform dropdown based on partner type
+  // Show/hide form fields based on partner type
   const platformDropdown = document.getElementById('platform');
-  if (platformDropdown) {
-    if (type === 'influencer') {
-      platformDropdown.classList.remove('hidden');
-      platformDropdown.required = true;
-    } else {
-      platformDropdown.classList.add('hidden');
-      platformDropdown.required = false;
-    }
+  const locationGroup = document.getElementById('locationGroup');
+  const propertyTypeGroup = document.getElementById('propertyTypeGroup');
+  const nicheGroup = document.getElementById('nicheGroup');
+  const phoneField = document.getElementById('phone');
+  const phoneLabel = document.querySelector('label[for="phone"]');
+  
+  // Reset visibility
+  [locationGroup, propertyTypeGroup, nicheGroup].forEach(group => {
+    if (group) group.classList.add('hidden');
+  });
+  
+  if (type === 'influencer') {
+    platformDropdown?.classList.remove('hidden');
+    nicheGroup?.classList.remove('hidden');
+    if (platformDropdown) platformDropdown.required = true;
+    if (phoneLabel) phoneLabel.textContent = 'Number of Followers/Subscribers';
+  } else if (type === 'hotel') {
+    platformDropdown?.classList.add('hidden');
+    locationGroup?.classList.remove('hidden');
+    propertyTypeGroup?.classList.remove('hidden');
+    if (platformDropdown) platformDropdown.required = false;
+    if (locationGroup) locationGroup.querySelector('input').required = true;
+    if (propertyTypeGroup) propertyTypeGroup.querySelector('select').required = true;
+    if (phoneLabel) phoneLabel.textContent = 'Number of Rooms';
+  } else if (type === 'venue') {
+    platformDropdown?.classList.add('hidden');
+    locationGroup?.classList.remove('hidden');
+    propertyTypeGroup?.classList.remove('hidden');
+    if (platformDropdown) platformDropdown.required = false;
+    if (locationGroup) locationGroup.querySelector('input').required = true;
+    if (propertyTypeGroup) propertyTypeGroup.querySelector('select').required = true;
+    if (phoneLabel) phoneLabel.textContent = 'Maximum Capacity';
+  } else {
+    platformDropdown?.classList.add('hidden');
+    if (platformDropdown) platformDropdown.required = false;
+    if (phoneLabel) phoneLabel.textContent = 'Phone Number';
   }
 
   // Update secondary CTA copy
@@ -416,9 +538,13 @@ document.addEventListener('DOMContentLoaded', function () {
       const formData = new FormData(form);
       const submitData = {
         name: formData.get('name'),
+        email: formData.get('email'),
         organization: formData.get('organization'),
+        location: formData.get('location') || null,
         phone: formData.get('phone'),
         platform: formData.get('platform') || null,
+        propertyType: formData.get('propertyType') || null,
+        niche: formData.get('niche') || null,
         partnerType: type,
         referralCode: ref
       };
@@ -485,3 +611,79 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Function to update tab content based on industry data
+function updateTabContent(data) {
+  // Update problem content
+  const problemContent = document.getElementById('problemContent');
+  if (problemContent && data.problemHeading) {
+    problemContent.innerHTML = `
+      <h3>${data.problemHeading}</h3>
+      <p>${data.problemContent}</p>
+    `;
+  }
+
+  // Update solution content
+  const solutionContent = document.getElementById('solutionContent');
+  if (solutionContent && data.solutionHeading) {
+    solutionContent.innerHTML = `
+      <h3>${data.solutionHeading}</h3>
+      <p>${data.solutionContent}</p>
+    `;
+  }
+
+  // Update steps in how-it-works tab
+  const tabStepList = document.getElementById('tabStepList');
+  if (tabStepList && data.steps) {
+    tabStepList.innerHTML = '';
+    data.steps.forEach((step, index) => {
+      const stepDiv = document.createElement('div');
+      stepDiv.className = 'step';
+      stepDiv.innerHTML = `
+        <div class="step-icon">${index + 1}</div>
+        <h3>${step.title}</h3>
+        <p>${step.description}</p>
+      `;
+      tabStepList.appendChild(stepDiv);
+    });
+  }
+
+  // Update demo content
+  const demoContent = document.getElementById('demoContent');
+  if (demoContent && data.demoPosts) {
+    demoContent.innerHTML = '';
+    data.demoPosts.forEach(post => {
+      const demoPost = document.createElement('div');
+      demoPost.className = 'demo-post';
+      demoPost.innerHTML = `
+        <div class="post-header">
+          <div class="avatar">${post.avatar}</div>
+          <div class="username">${post.username}</div>
+        </div>
+        <div class="post-content">${post.content}</div>
+        <button class="cta-button">${post.cta}</button>
+      `;
+      demoContent.appendChild(demoPost);
+    });
+  }
+}
+
+// Function to initialize tab functionality
+function initializeTabs() {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetTab = button.getAttribute('data-tab');
+
+      // Remove active class from all buttons and panels
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabPanels.forEach(panel => panel.classList.remove('active'));
+
+      // Add active class to clicked button and corresponding panel
+      button.classList.add('active');
+      document.getElementById(`${targetTab}-tab`).classList.add('active');
+    });
+  });
+}
