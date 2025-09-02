@@ -104,16 +104,16 @@ document.addEventListener('DOMContentLoaded', function () {
       problemHeading: 'You already post & share. Followers love your recommendations. But you don\'t earn.',
       problemContent: 'You create amazing content and get great engagement, but struggle to monetize your influence effectively.',
       problemComposition: [
-        { icon: 'assets/emojis/gradient-heart.png', size: '60px', top: '20px', left: '10px', rotation: '-15deg' },
-        { icon: 'assets/emojis/gradient-heart.png', size: '45px', top: '40px', right: '15px', rotation: '20deg' },
-        { icon: 'assets/emojis/gradient-heart.png', size: '35px', top: '60px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' }
+        { icon: 'assets/emojis/gradient-heart.png', size: '50px', top: '15px', left: '35%', rotation: '-15deg' },
+        { icon: 'assets/emojis/gradient-heart.png', size: '55px', top: '30px', left: '50%', rotation: '20deg', transform: 'translateX(-50%)' },
+        { icon: 'assets/emojis/gradient-heart.png', size: '45px', top: '45px', right: '35%', rotation: '0deg' }
       ],
       solutionHeading: 'With Traaple, your posts become bookable experiences. Earn commission every time someone books.',
       solutionContent: 'Connect your social media presence to real bookable experiences and start earning from every recommendation.',
       solutionComposition: [
-        { icon: 'assets/emojis/money-bag.png', size: '80px', top: '20px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
-        { icon: 'assets/emojis/confetti.png', size: '50px', top: '15px', left: '20px', rotation: '-10deg' },
-        { icon: 'assets/emojis/confetti.png', size: '45px', top: '25px', right: '20px', rotation: '15deg' }
+        { icon: 'assets/emojis/money-bag.png', size: '65px', top: '25px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
+        { icon: 'assets/emojis/confetti.png', size: '40px', top: '20px', left: '30%', rotation: '-10deg' },
+        { icon: 'assets/emojis/confetti.png', size: '35px', top: '30px', right: '30%', rotation: '15deg' }
       ],
       demoHeading: 'Example of influencer posts',
       demoPosts: [
