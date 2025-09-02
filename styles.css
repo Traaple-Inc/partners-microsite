@@ -312,6 +312,22 @@ font-family: var(--heading-font);
   margin: 0 auto;
 }
 
+.problem-content .emoji-composition {
+  position: relative;
+  height: 120px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problem-content .emoji-composition img {
+  position: absolute;
+  opacity: 0.6;
+  filter: grayscale(30%);
+  transition: transform 0.3s ease;
+}
+
 .problem-content h3 {
   font-size: 2rem;
   color: #333;
@@ -333,6 +349,26 @@ font-family: var(--heading-font);
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.solution-content .emoji-composition {
+  position: relative;
+  height: 120px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solution-content .emoji-composition img {
+  position: absolute;
+  opacity: 1;
+  filter: none;
+  transition: transform 0.3s ease;
+}
+
+.solution-content .emoji-composition:hover img {
+  transform: scale(1.1);
 }
 
 .solution-content h3 {

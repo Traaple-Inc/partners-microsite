@@ -103,8 +103,18 @@ document.addEventListener('DOMContentLoaded', function () {
       ctaBackground: 'assets/influencer/bg.jpg',
       problemHeading: 'You already post & share. Followers love your recommendations. But you don\'t earn.',
       problemContent: 'You create amazing content and get great engagement, but struggle to monetize your influence effectively.',
+      problemComposition: [
+        { icon: 'assets/emojis/gradient-heart.png', size: '60px', top: '20px', left: '10px', rotation: '-15deg' },
+        { icon: 'assets/emojis/gradient-heart.png', size: '45px', top: '40px', right: '15px', rotation: '20deg' },
+        { icon: 'assets/emojis/gradient-heart.png', size: '35px', top: '60px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' }
+      ],
       solutionHeading: 'With Traaple, your posts become bookable experiences. Earn commission every time someone books.',
       solutionContent: 'Connect your social media presence to real bookable experiences and start earning from every recommendation.',
+      solutionComposition: [
+        { icon: 'assets/emojis/money-bag.png', size: '80px', top: '20px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
+        { icon: 'assets/emojis/confetti.png', size: '50px', top: '15px', left: '20px', rotation: '-10deg' },
+        { icon: 'assets/emojis/confetti.png', size: '45px', top: '25px', right: '20px', rotation: '15deg' }
+      ],
       demoHeading: 'Example of influencer posts',
       demoPosts: [
         {
@@ -176,8 +186,18 @@ document.addEventListener('DOMContentLoaded', function () {
       ctaBackground: 'assets/hotel/bg.jpg',
       problemHeading: 'You don\'t always have answers when guests ask "What can I do nearby?"',
       problemContent: 'Guests constantly ask for local recommendations, putting pressure on your staff and potentially impacting guest satisfaction.',
+      problemComposition: [
+        { icon: 'assets/emojis/hotel.png', size: '70px', top: '25px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' }
+      ],
       solutionHeading: 'Guests book experiences. You earn a share instantly.',
       solutionContent: 'QR codes in rooms provide instant access to curated local experiences. Your guests get great recommendations, and you earn commission on every booking.',
+      solutionComposition: [
+        { icon: 'assets/emojis/hotel.png', size: '65px', top: '30px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
+        { icon: 'assets/emojis/star.png', size: '40px', top: '10px', left: '25%', rotation: '-20deg' },
+        { icon: 'assets/emojis/star.png', size: '35px', top: '15px', right: '25%', rotation: '25deg' },
+        { icon: 'assets/emojis/star.png', size: '30px', top: '70px', left: '30%', rotation: '10deg' },
+        { icon: 'assets/emojis/star.png', size: '28px', top: '75px', right: '30%', rotation: '-15deg' }
+      ],
       demoHeading: 'Flyer → Experience booking',
       demoPosts: [
         {
@@ -238,8 +258,20 @@ document.addEventListener('DOMContentLoaded', function () {
       ctaBackground: 'assets/venue/bg.jpg',
       problemHeading: 'Hard to fill events & drive consistent traffic.',
       problemContent: 'Empty tables and low attendance at events directly impact your revenue and reputation.',
+      problemComposition: [
+        { icon: 'assets/emojis/wine-glass.png', size: '55px', top: '30px', left: '30%', rotation: '-10deg' },
+        { icon: 'assets/emojis/wine-glass.png', size: '60px', top: '35px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
+        { icon: 'assets/emojis/wine-glass.png', size: '50px', top: '40px', right: '30%', rotation: '12deg' }
+      ],
       solutionHeading: 'List your events/tables on Traaple. Customers discover & pre-book.',
       solutionContent: 'Get discovered by customers looking for dining and entertainment experiences. Fill your venue with pre-booked guests.',
+      solutionComposition: [
+        { icon: 'assets/emojis/chart.png', size: '75px', top: '25px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
+        { icon: 'assets/emojis/wine-glass.png', size: '45px', top: '20px', left: '20%', rotation: '-15deg' },
+        { icon: 'assets/emojis/wine-glass.png', size: '40px', top: '25px', right: '20%', rotation: '18deg' },
+        { icon: 'assets/emojis/chef.png', size: '35px', top: '65px', left: '25%', rotation: '-8deg' },
+        { icon: 'assets/emojis/chef.png', size: '30px', top: '70px', right: '25%', rotation: '10deg' }
+      ],
       demoHeading: 'Event listing → Ticket booking',
       demoPosts: [
         {
@@ -617,7 +649,26 @@ function updateTabContent(data) {
   // Update problem content
   const problemContent = document.getElementById('problemContent');
   if (problemContent && data.problemHeading) {
+    let problemEmojiHTML = '';
+    if (data.problemComposition) {
+      problemEmojiHTML = '<div class="emoji-composition">';
+      data.problemComposition.forEach(emoji => {
+        const styles = [
+          `width: ${emoji.size}`,
+          `height: ${emoji.size}`,
+          `top: ${emoji.top}`,
+          emoji.left ? `left: ${emoji.left}` : '',
+          emoji.right ? `right: ${emoji.right}` : '',
+          `transform: rotate(${emoji.rotation})${emoji.transform ? ` ${emoji.transform}` : ''}`
+        ].filter(s => s).join('; ');
+        
+        problemEmojiHTML += `<img src="${emoji.icon}" alt="Problem emoji" style="${styles}" />`;
+      });
+      problemEmojiHTML += '</div>';
+    }
+    
     problemContent.innerHTML = `
+      ${problemEmojiHTML}
       <h3>${data.problemHeading}</h3>
       <p>${data.problemContent}</p>
     `;
@@ -626,7 +677,26 @@ function updateTabContent(data) {
   // Update solution content
   const solutionContent = document.getElementById('solutionContent');
   if (solutionContent && data.solutionHeading) {
+    let solutionEmojiHTML = '';
+    if (data.solutionComposition) {
+      solutionEmojiHTML = '<div class="emoji-composition">';
+      data.solutionComposition.forEach(emoji => {
+        const styles = [
+          `width: ${emoji.size}`,
+          `height: ${emoji.size}`,
+          `top: ${emoji.top}`,
+          emoji.left ? `left: ${emoji.left}` : '',
+          emoji.right ? `right: ${emoji.right}` : '',
+          `transform: rotate(${emoji.rotation})${emoji.transform ? ` ${emoji.transform}` : ''}`
+        ].filter(s => s).join('; ');
+        
+        solutionEmojiHTML += `<img src="${emoji.icon}" alt="Solution emoji" style="${styles}" />`;
+      });
+      solutionEmojiHTML += '</div>';
+    }
+    
     solutionContent.innerHTML = `
+      ${solutionEmojiHTML}
       <h3>${data.solutionHeading}</h3>
       <p>${data.solutionContent}</p>
     `;
