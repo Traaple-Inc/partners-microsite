@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
       heroImage: 'assets/influencer_hero.jpg',
       thankYouImage: 'assets/influencer_hero.jpg',
       secondaryHeadline: 'Start monetizing your content now',
-      secondarySubtext: 'Click here to get started',
+      secondarySubtext: 'Fill out the form below to join our program',
       ctaBackground: 'assets/influencer/bg.jpg'
     },
     hotel: {
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
       heroImage: 'assets/hotel_hero.jpg',
       thankYouImage: 'assets/hotel_hero.jpg',
       secondaryHeadline: 'Transform your guest stays now',
-      secondarySubtext: 'Click here to get started',
+      secondarySubtext: 'Fill out the form below to join our program',
       ctaBackground: 'assets/hotel/bg.jpg'
     },
     venue: {
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
       heroImage: 'assets/venue_hero.jpg',
       thankYouImage: 'assets/venue_hero.jpg',
       secondaryHeadline: 'Boost attendance. Get listed today',
-      secondarySubtext: 'Click here to get started',
+      secondarySubtext: 'Fill out the form below to join our program',
       ctaBackground: 'assets/venue/bg.jpg'
     },
     // Conference and event partners promote add‑on experiences to attendees.
