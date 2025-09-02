@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 258.1 211.6" preserveAspectRatio="xMidYMid meet" version="1.1" viewBox="0.0 0.0 258.1 211.6" x="0px" xml:space="preserve" y="0px" zoomAndPan="magnify">
+<linearGradient xmlns:xlink="http://www.w3.org/1999/xlink" gradientTransform="matrix(-.7071 .7071 -.7071 -.7071 1129.4 708.38)" gradientUnits="userSpaceOnUse" id="__id3_sdkixj9s7k" x1="356.09" x2="206.47" xlink:actuate="onLoad" xlink:show="other" xlink:type="simple" y1="1058.7" y2="1208.3">
+    <stop offset=".1021" stop-opacity="0" style="stop-color: rgb(255, 255, 255);"/>
+    <stop offset="1" style="stop-color: rgb(79, 195, 247);"/>
+</linearGradient>
+<polygon points="0 211.6 129.1 0 258.1 211.6" style="fill: url(#__id3_sdkixj9s7k);"/>
+</svg>

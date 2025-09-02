@@ -108,6 +108,7 @@ button {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35)), url('assets/hero.png');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -450,9 +451,7 @@ input::placeholder {
 /* Secondary CTA section replicating the hero call to action. */
 /* Secondary CTA section: use a scenic background image and a centred white card for content. */
 .secondary-cta {
-  background-image: url('assets/forest.png');
-  background-size: cover;
-  background-position: center;
+  background-color: #0f2a47;
   padding: 5rem 2rem;
   display: flex;
   justify-content: center;

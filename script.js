@@ -31,20 +31,24 @@ document.addEventListener('DOMContentLoaded', function () {
   // support venues, conferences, blogs and nightlife partners.
   const partnerData = {
     influencer: {
-      headline: 'Turn Your Posts Into Extra Income',
+      headline: 'Turn your influence into income',
       subtext:
-        'Your followers already love your recommendations. With Traaple, they can book them – while you earn each time.',
+        'You already post & share. Followers love your recommendations. But you don\'t earn.',
       steps: [
         {
-          title: 'Share',
+          title: 'You post content',
           description: 'Share your favourite spots and experiences with your followers.'
         },
         {
-          title: 'Followers Book',
+          title: 'Link Traaple\'s page',
+          description: 'Include your referral link in your content.'
+        },
+        {
+          title: 'Your followers book an experience',
           description: 'They book directly through your unique link.'
         },
         {
-          title: 'Earn',
+          title: 'You earn instantly',
           description: 'You earn commissions on every booking – no extra effort.'
         }
       ],
@@ -57,92 +61,99 @@ document.addEventListener('DOMContentLoaded', function () {
         'Dedicated support to help you maximise your income.'
       ],
       formLabels: {
-        name: 'Name',
-        organization: 'Handle',
-        phone: 'Phone Number',
-        experiencePlaceholder: 'e.g. Food, Activities, Nightlife'
+        name: 'Your Name',
+        organization: 'Social Media Handle/Username',
+        phone: 'Number of Followers/Subscribers',
+        experiencePlaceholder: 'Content Niche (Travel, Food, Lifestyle, etc.)'
       },
       heroImage: 'assets/influencer_hero.jpg',
       thankYouImage: 'assets/influencer_hero.jpg',
-      secondaryHeadline: 'Ready to earn extra income?',
-      secondarySubtext: 'Join Traaple and start turning your posts into profits.',
-      ctaBackground: 'assets/forest.png'
+      secondaryHeadline: 'Start monetizing your content now',
+      secondarySubtext: 'Click here to get started',
+      ctaBackground: 'assets/influencer/bg.jpg'
     },
     hotel: {
-      headline: 'Earn More From Every Guest',
+      headline: 'Enhance guest stays and earn more',
       subtext:
-        'Place a QR code in your rooms. Guests book tours – you earn commissions.',
+        'You don\'t always have answers when guests ask "What can I do nearby?"',
       steps: [
         {
-          title: 'Place QR Codes',
+          title: 'Guest scans QR code',
           description: 'Place QR codes in your hotel rooms and lobbies.'
         },
         {
-          title: 'Guests Book',
-          description: 'Guests scan, discover curated experiences and book instantly.'
+          title: 'Guest visits Traaple page',
+          description: 'Guests discover curated local experiences.'
         },
         {
-          title: 'You Earn',
+          title: 'Guest books an experience',
+          description: 'They book instantly through the platform.'
+        },
+        {
+          title: 'You earn instantly',
           description: 'You earn a commission automatically on every booking.'
         }
       ],
       example: 'For every guest who books a ₵2,000 tour, you get an extra ₵100.',
       benefits: [
-        'New labour‑free revenue stream.',
-        "Enhance guests’ stays with curated local activities.",
-        'Earn commission on every booking with zero overhead.',
+        'QR codes in rooms provide instant local recommendations.',
+        'Concierge support helps guests book experiences.',
+        'Guests book experiences while you earn a share instantly.',
         'We manage bookings, payments and support for you.'
       ],
       formLabels: {
-        name: 'Name',
-        organization: 'Hotel Name',
-        phone: 'Phone Number',
-        experiencePlaceholder: 'e.g. Tours, Activities, Nightlife'
+        name: 'Your Name',
+        organization: 'Hotel/Property Name',
+        phone: 'Number of Rooms',
+        experiencePlaceholder: 'Property Type (Hotel, Resort, etc.)'
       },
       heroImage: 'assets/hotel_hero.jpg',
       thankYouImage: 'assets/hotel_hero.jpg',
-      secondaryHeadline: 'Ready to boost guest revenue?',
-      secondarySubtext: 'Partner with Traaple and monetise every stay.',
-      ctaBackground: 'assets/forest.png'
+      secondaryHeadline: 'Transform your guest stays now',
+      secondarySubtext: 'Click here to get started',
+      ctaBackground: 'assets/hotel/bg.jpg'
     },
-    // Venue partners represent restaurants, clubs, or event spaces that want to monetise their spaces.
     venue: {
-      headline: 'Unlock New Revenue from Your Venue',
+      headline: 'Sell more tables and tickets',
       subtext:
-        'Let guests discover and book dining or event experiences at your location.',
+        'Hard to fill events & drive consistent traffic.',
       steps: [
         {
-          title: 'Display Codes',
-          description: 'Place QR codes or promotional screens throughout your venue.'
+          title: 'List your venue on Traaple',
+          description: 'Add your events and available tables to our platform.'
         },
         {
-          title: 'Guests Book',
-          description: 'Customers book curated experiences through your unique link.'
+          title: 'App visitors see your listing',
+          description: 'Customers discover your venue through the app.'
         },
         {
-          title: 'Earn',
-          description: 'You earn commission on every booking with zero overhead.'
+          title: 'App visitors book a reservation',
+          description: 'They book tables and tickets directly.'
+        },
+        {
+          title: 'Venue gets filled',
+          description: 'Your venue fills up with pre-booked customers.'
         }
       ],
       example:
         'Guests spend ₵1,500 on a dinner package — you earn ₵300 in commission.',
       benefits: [
+        'List your events/tables on Traaple for discovery.',
+        'Customers discover & pre-book your experiences.',
         'Fill empty tables and time slots with high‑value bookings.',
-        'Attract new customers through Traaple’s discovery platform.',
-        'Access analytics to track bookings and revenue.',
         'We handle marketing, payments and support for you.'
       ],
       formLabels: {
-        name: 'Name',
+        name: 'Your Name',
         organization: 'Venue Name',
-        phone: 'Phone Number',
-        experiencePlaceholder: 'e.g. Dinners, Events, Parties'
+        phone: 'Maximum Capacity',
+        experiencePlaceholder: 'Venue Type (Restaurant, Bar, etc.)'
       },
       heroImage: 'assets/venue_hero.jpg',
       thankYouImage: 'assets/venue_hero.jpg',
-      secondaryHeadline: 'Ready to fill seats and earn more?',
-      secondarySubtext: 'Partner with Traaple to monetise your venue.',
-      ctaBackground: 'assets/forest.png'
+      secondaryHeadline: 'Boost attendance. Get listed today',
+      secondarySubtext: 'Click here to get started',
+      ctaBackground: 'assets/venue/bg.jpg'
     },
     // Conference and event partners promote add‑on experiences to attendees.
     conference: {
@@ -279,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // the underlying photo remains visible while still providing sufficient
     // contrast for the white text. Adjust the alpha values here to taste.
     heroSection.style.backgroundImage =
-      `linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25)), url('${data.heroImage}')`;
+      `linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25)), url('${data.ctaBackground}')`;
   }
 
   // Update steps
@@ -349,11 +360,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('secondaryHeadline').textContent = data.secondaryHeadline;
   document.getElementById('secondarySubtext').textContent = data.secondarySubtext;
 
-  // Update secondary CTA background image
-  const secondarySection = document.querySelector('.secondary-cta');
-  if (secondarySection && data.ctaBackground) {
-    secondarySection.style.backgroundImage = `url('${data.ctaBackground}')`;
-  }
+  // Secondary CTA section now uses solid background color (set in CSS)
 
   // Referral link for CTAs
   const referralLink = `https://traaple.com/signup?ref=${encodeURIComponent(ref)}`;
