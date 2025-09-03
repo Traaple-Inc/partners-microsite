@@ -705,6 +705,23 @@ font-family: var(--heading-font);
   flex: 1 1 100%;
   min-width: 0;
 }
+
+/* Make hotel/venue demo placeholders responsive on small screens */
+@media (max-width: 768px) {
+  .demo-box-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .demo-box.left,
+  .demo-box.right,
+  .demo-box.full {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  .demo-box.empty-box {
+    min-height: 240px;
+  }
+}
 .demo-box img {
   width: 100%;
   height: 100%;
