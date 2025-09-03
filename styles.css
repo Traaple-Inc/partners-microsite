@@ -604,8 +604,9 @@ font-family: var(--heading-font);
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--primary-color);
-  color: white;
+  background-color: #e0e0e0; /* soft gray background */
+  color: #333; /* darker initials for contrast */
+  border: 1px solid #d6d6d6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -616,7 +617,7 @@ font-family: var(--heading-font);
 
 .demo-post .username {
   font-weight: 600;
-  color: var(--primary-color);
+  color: #444; /* slightly dark handle color */
 }
 
 .demo-post .post-content {
