@@ -433,10 +433,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Update hero text
   document.getElementById('heroHeadline').textContent = data.headline;
   document.getElementById('heroSubtext').textContent = data.subtext;
-  // Standardise CTA labels in header, hero and form submit
+  // Standardise CTA labels; header uses a shorter label
   const headerCTA = document.getElementById('ctaHeader');
   const heroCTA = document.getElementById('heroCTA');
-  headerCTA && (headerCTA.textContent = CTA_TEXT);
+  headerCTA && (headerCTA.textContent = 'Get started');
   heroCTA && (heroCTA.textContent = CTA_TEXT);
 
   // Update hero background image
