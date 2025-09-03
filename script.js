@@ -9,6 +9,8 @@
 // CRM or backend can be added later.
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Standardised primary call-to-action label
+  const CTA_TEXT = 'Click here to get started.';
   // Parse query parameters
   const params = new URLSearchParams(window.location.search);
   const typeParam = params.get('type');
@@ -426,6 +428,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Update hero text
   document.getElementById('heroHeadline').textContent = data.headline;
   document.getElementById('heroSubtext').textContent = data.subtext;
+  // Standardise CTA labels in header, hero and form submit
+  const headerCTA = document.getElementById('ctaHeader');
+  const heroCTA = document.getElementById('heroCTA');
+  headerCTA && (headerCTA.textContent = CTA_TEXT);
+  heroCTA && (heroCTA.textContent = CTA_TEXT);
 
   // Update hero background image
   const heroSection = document.querySelector('.hero');
@@ -508,6 +515,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Update secondary CTA copy
   document.getElementById('secondaryHeadline').textContent = data.secondaryHeadline;
   document.getElementById('secondarySubtext').textContent = data.secondarySubtext;
+  // Standardise form submit button label
+  const formSubmit = document.querySelector('#partnerForm button[type="submit"]');
+  formSubmit && (formSubmit.textContent = CTA_TEXT);
 
   // Secondary CTA section now uses solid background color (set in CSS)
 
@@ -670,7 +680,7 @@ function updateTabContent(data) {
     // Add navigation button to go to Solution tab
     const toSolutionBtn = document.createElement('button');
     toSolutionBtn.className = 'cta-button panel-cta';
-    toSolutionBtn.textContent = 'See Solution';
+    toSolutionBtn.textContent = CTA_TEXT;
     toSolutionBtn.addEventListener('click', () => activateTab('solution'));
     problemContent.appendChild(toSolutionBtn);
   }
@@ -710,7 +720,7 @@ function updateTabContent(data) {
     // Add navigation button to go to How it Works
     const toHowBtn = document.createElement('button');
     toHowBtn.className = 'cta-button panel-cta';
-    toHowBtn.textContent = 'How it works';
+    toHowBtn.textContent = CTA_TEXT;
     toHowBtn.addEventListener('click', () => activateTab('how-it-works'));
     solutionContent.appendChild(toHowBtn);
   }
@@ -734,7 +744,7 @@ function updateTabContent(data) {
     if (stepsPanel) {
       const toDemoBtn = document.createElement('button');
       toDemoBtn.className = 'cta-button panel-cta';
-      toDemoBtn.textContent = 'See Demo';
+      toDemoBtn.textContent = CTA_TEXT;
       toDemoBtn.addEventListener('click', () => activateTab('demo'));
       stepsPanel.appendChild(toDemoBtn);
     }
@@ -810,7 +820,7 @@ function updateTabContent(data) {
     // Add final CTA in Demo tab to lead to the embedded form
     const startBtn = document.createElement('button');
     startBtn.className = 'cta-button panel-cta';
-    startBtn.textContent = "Let's Get Started";
+    startBtn.textContent = CTA_TEXT;
     startBtn.addEventListener('click', () => {
       const ctaSection = document.querySelector('.secondary-cta');
       if (ctaSection) ctaSection.scrollIntoView({ behavior: 'smooth' });
