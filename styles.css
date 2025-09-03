@@ -210,6 +210,10 @@ font-family: var(--heading-font);
   justify-content: center;
   margin-bottom: 1rem;
 }
+/* Use a bright sky blue for steps 1–3 */
+.step:not(:last-child) .step-icon {
+  background-color: #4fc3f7;
+}
 
 /* Make the final step in the how‑it‑works section stand out.
    Instead of a solid circle, use the star.png graphic as the
