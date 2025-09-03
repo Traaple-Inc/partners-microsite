@@ -120,31 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
         { icon: 'assets/emojis/confetti.png', size: '40px', top: '20px', left: '30%', rotation: '-10deg' },
         { icon: 'assets/emojis/confetti.png', size: '35px', top: '30px', right: '30%', rotation: '15deg' }
       ],
-      demoHeading: 'Example of influencer posts',
-      demoPosts: [
-        {
-          username: '@sarah_travels',
-          avatar: 'ST',
-          content: 'Stumbled on a quiet beach near Cape Coast — palm trees, warm tide and golden sunsets. 🌅🇬🇭',
-          cta: 'Book this experience',
-          // Image generated via AI and stored in assets/influencer
-          image: 'capecoast.png'
-        },
-        {
-          username: '@foodie_mike',
-          avatar: 'FM',
-          content: 'Street‑food crawl in Accra: waakye, kelewele and smoky suya — absolute perfection!',
-          cta: 'Book this restaurant',
-          image: 'waakye.png'
-        },
-        {
-          username: '@adventure_alex',
-          avatar: 'AA',
-          content: 'Sunrise hike up Mount Afadja then a dip at Wli Falls — unreal views in the Volta Region! ⛰️💧',
-          cta: 'Book this hike',
-          image: 'volta.png'
-        }
-      ]
     },
     hotel: {
       title: 'Traaple Hotel Partners',
@@ -201,21 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
         { icon: 'assets/emojis/star.png', size: '30px', top: '70px', left: '30%', rotation: '10deg' },
         { icon: 'assets/emojis/star.png', size: '28px', top: '75px', right: '30%', rotation: '-15deg' }
       ],
-      demoHeading: 'Flyer → Experience booking',
-      demoPosts: [
-        {
-          username: 'Hotel Room 205',
-          avatar: 'QR',
-          content: 'Scan QR code to discover amazing local experiences',
-          cta: 'View Experiences'
-        },
-        {
-          username: 'Guest Experience',
-          avatar: 'GE',
-          content: 'Book guided city tours, local restaurants, and cultural activities',
-          cta: 'Book Now'
-        }
-      ]
     },
     venue: {
       title: 'Traaple Venues Program',
@@ -272,21 +232,6 @@ document.addEventListener('DOMContentLoaded', function () {
       solutionContent: 'Get discovered by customers looking for dining and entertainment across Africa. Fill your venue with pre‑booked guests in cities like Accra, Lagos, Nairobi and Cape Town.',
       // No emojis needed in Solution tab when image is present
       solutionComposition: null,
-      demoHeading: 'Event listing → Ticket booking',
-      demoPosts: [
-        {
-          username: 'Traaple Events',
-          avatar: 'TE',
-          content: 'Jazz Night at Sunset Lounge - Live music, cocktails, and great vibes',
-          cta: 'Buy Tickets'
-        },
-        {
-          username: 'Table Bookings',
-          avatar: 'TB',
-          content: 'Reserve your table for Chef\'s Special Dinner this Saturday',
-          cta: 'Book Table'
-        }
-      ]
     },
     // Conference and event partners promote add‑on experiences to attendees.
     conference: {
@@ -412,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Determine copy based on partner type; default to influencer if unspecified
   const data = partnerData[type] || partnerData.influencer;
   // Preserve the current partner type on the data object so the tab update logic
-  // can adjust content rendering (e.g. hotel demo layout)
+  // can adjust content rendering (e.g. hotel-specific layout)
   data.partnerType = type;
 
   // Update page title
@@ -775,93 +720,8 @@ function updateTabContent(data) {
       `;
       tabStepList.appendChild(stepDiv);
     });
-    // Add navigation button to go to Demo tab
-    const stepsPanel = document.querySelector('#how-it-works-tab .steps-content');
-    if (stepsPanel) {
-      const toDemoBtn = document.createElement('button');
-      toDemoBtn.className = 'cta-button panel-cta';
-      toDemoBtn.textContent = 'See Demo';
-      toDemoBtn.addEventListener('click', () => activateTab('demo'));
-      stepsPanel.appendChild(toDemoBtn);
-    }
   }
 
-  // Update demo content
-  const demoContent = document.getElementById('demoContent');
-  if (demoContent) {
-    // Always clear existing content
-    demoContent.innerHTML = '';
-    // Ensure full‑width layout for hotel/venue demos
-    const useWide = data.partnerType === 'hotel' || data.partnerType === 'venue';
-    demoContent.classList.toggle('wide-layout', useWide);
-    // Hotel partners require a different layout: two side‑by‑side boxes showing
-    // example app screens. Rather than using the demoPosts array, create a
-    // container with two boxes. Each box holds an image from the hotel assets.
-    if (data.partnerType === 'hotel') {
-      const container = document.createElement('div');
-      container.className = 'demo-box-container';
-      // Create left and right boxes without images; these will act as placeholders
-      const left = document.createElement('div');
-      left.className = 'demo-box left empty-box';
-      left.innerHTML = '<div class="placeholder-text">App screen preview</div>';
-      // Right box placeholder
-      const right = document.createElement('div');
-      right.className = 'demo-box right empty-box';
-      right.innerHTML = '<div class="placeholder-text">App screen preview</div>';
-      container.appendChild(left);
-      container.appendChild(right);
-      demoContent.appendChild(container);
-    } else if (data.partnerType === 'venue') {
-      // Venue demo matches hotel style but uses a single full‑width placeholder
-      const container = document.createElement('div');
-      container.className = 'demo-box-container';
-      const full = document.createElement('div');
-      full.className = 'demo-box full empty-box';
-      full.innerHTML = '<div class="placeholder-text">Event listing / booking preview</div>';
-      container.appendChild(full);
-      demoContent.appendChild(container);
-    } else if (data.demoPosts && Array.isArray(data.demoPosts)) {
-      // For influencer and other partners, render each post as an Instagram‑style card
-      data.demoPosts.forEach(post => {
-        const demoPost = document.createElement('div');
-        demoPost.className = 'demo-post';
-        let postHTML = '';
-        // Header with avatar and username
-        postHTML += `
-          <div class="post-header">
-            <div class="avatar">${post.avatar}</div>
-            <div class="username">${post.username}</div>
-          </div>
-        `;
-        // Optional image for the post
-        if (post.image) {
-          postHTML += `<img class="post-image" src="${post.image}" alt="Post image" />`;
-        }
-        // Post text content
-        postHTML += `<div class="post-content">${post.content}</div>`;
-        // Instagram‑style action icons
-        postHTML += `
-          <div class="post-actions">
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-regular fa-comment"></i>
-            <i class="fa-solid fa-paper-plane"></i>
-          </div>
-        `;
-        // Removed per-post CTA button for social media style demos
-        demoPost.innerHTML = postHTML;
-        demoContent.appendChild(demoPost);
-      });
-    }
-    // Add final CTA in Demo tab to lead to the embedded form
-    const startBtn = document.createElement('button');
-    startBtn.className = 'cta-button panel-cta';
-    startBtn.textContent = CTA_TEXT;
-    startBtn.addEventListener('click', () => {
-      const ctaSection = document.querySelector('.secondary-cta');
-      if (ctaSection) ctaSection.scrollIntoView({ behavior: 'smooth' });
-    });
-    demoContent.appendChild(startBtn);
-  }
 }
 
 // Function to initialize tab functionality
@@ -884,7 +744,7 @@ function initializeTabs() {
   });
 }
 
-// Programmatically activate a tab by name (problem, solution, how-it-works, demo)
+// Programmatically activate a tab by name (problem, solution, how-it-works)
 function activateTab(tabName) {
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabPanels = document.querySelectorAll('.tab-panel');
