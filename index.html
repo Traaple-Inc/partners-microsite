@@ -114,7 +114,19 @@
           </div>
           <div class="form-group">
             <label for="organization">Organization / Handle</label>
-            <input type="text" id="organization" name="organization" required />
+            <div class="input-with-dropdown">
+              <select id="platform" name="platform" class="platform-dropdown hidden" aria-label="Social media platform">
+                <option value="">Platform</option>
+                <option value="instagram">Instagram</option>
+                <option value="tiktok">TikTok</option>
+                <option value="youtube">YouTube</option>
+                <option value="twitter">Twitter/X</option>
+                <option value="facebook">Facebook</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="other">Other</option>
+              </select>
+              <input type="text" id="organization" name="organization" required />
+            </div>
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
