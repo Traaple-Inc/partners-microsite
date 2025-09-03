@@ -408,6 +408,23 @@ font-family: var(--heading-font);
   margin: 0;
 }
 
+/* CTA buttons placed at the bottom of each tab's panel */
+.panel-cta {
+  margin-top: 1.5rem;
+}
+
+/* Center the See Demo button within the How It Works tab */
+.steps-content .panel-cta {
+  display: block;
+  margin: 2rem auto 0;
+}
+
+/* Place the final CTA at the bottom of the Demo grid, centered */
+.demo-content .panel-cta {
+  display: block;
+  margin: 1.5rem auto 0;
+}
+
 /* Optional illustration placed in the Solution tab */
 .solution-illustration {
   width: 100%;
@@ -461,6 +478,18 @@ font-family: var(--heading-font);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+}
+
+/* When a partner uses the special demo layout (hotel/venue), switch the
+   demo area to block so custom containers can fill the full width */
+.demo-content.wide-layout {
+  display: block;
+}
+
+/* Ensure custom demo containers span the entire grid width when grid is used */
+.demo-content .demo-box-container {
+  grid-column: 1 / -1;
+  width: 100%;
 }
 
 .demo-post {

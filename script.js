@@ -667,6 +667,12 @@ function updateTabContent(data) {
       <h3>${data.problemHeading}</h3>
       <p>${data.problemContent}</p>
     `;
+    // Add navigation button to go to Solution tab
+    const toSolutionBtn = document.createElement('button');
+    toSolutionBtn.className = 'cta-button panel-cta';
+    toSolutionBtn.textContent = 'See Solution';
+    toSolutionBtn.addEventListener('click', () => activateTab('solution'));
+    problemContent.appendChild(toSolutionBtn);
   }
 
   // Update solution content
@@ -701,6 +707,12 @@ function updateTabContent(data) {
       <p>${data.solutionContent}</p>
       ${solutionImageHTML}
     `;
+    // Add navigation button to go to How it Works
+    const toHowBtn = document.createElement('button');
+    toHowBtn.className = 'cta-button panel-cta';
+    toHowBtn.textContent = 'How it works';
+    toHowBtn.addEventListener('click', () => activateTab('how-it-works'));
+    solutionContent.appendChild(toHowBtn);
   }
 
   // Update steps in how-it-works tab
@@ -717,6 +729,15 @@ function updateTabContent(data) {
       `;
       tabStepList.appendChild(stepDiv);
     });
+    // Add navigation button to go to Demo tab
+    const stepsPanel = document.querySelector('#how-it-works-tab .steps-content');
+    if (stepsPanel) {
+      const toDemoBtn = document.createElement('button');
+      toDemoBtn.className = 'cta-button panel-cta';
+      toDemoBtn.textContent = 'See Demo';
+      toDemoBtn.addEventListener('click', () => activateTab('demo'));
+      stepsPanel.appendChild(toDemoBtn);
+    }
   }
 
   // Update demo content
@@ -724,6 +745,9 @@ function updateTabContent(data) {
   if (demoContent) {
     // Always clear existing content
     demoContent.innerHTML = '';
+    // Ensure full‑width layout for hotel/venue demos
+    const useWide = data.partnerType === 'hotel' || data.partnerType === 'venue';
+    demoContent.classList.toggle('wide-layout', useWide);
     // Hotel partners require a different layout: two side‑by‑side boxes showing
     // example app screens. Rather than using the demoPosts array, create a
     // container with two boxes. Each box holds an image from the hotel assets.
@@ -783,6 +807,15 @@ function updateTabContent(data) {
         demoContent.appendChild(demoPost);
       });
     }
+    // Add final CTA in Demo tab to lead to the embedded form
+    const startBtn = document.createElement('button');
+    startBtn.className = 'cta-button panel-cta';
+    startBtn.textContent = "Let's Get Started";
+    startBtn.addEventListener('click', () => {
+      const ctaSection = document.querySelector('.secondary-cta');
+      if (ctaSection) ctaSection.scrollIntoView({ behavior: 'smooth' });
+    });
+    demoContent.appendChild(startBtn);
   }
 }
 
@@ -804,6 +837,22 @@ function initializeTabs() {
       document.getElementById(`${targetTab}-tab`).classList.add('active');
     });
   });
+}
+
+// Programmatically activate a tab by name (problem, solution, how-it-works, demo)
+function activateTab(tabName) {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  // Deactivate all
+  tabButtons.forEach(btn => btn.classList.remove('active'));
+  tabPanels.forEach(panel => panel.classList.remove('active'));
+  // Activate target
+  const button = document.querySelector(`.tab-button[data-tab="${tabName}"]`);
+  const panel = document.getElementById(`${tabName}-tab`);
+  button?.classList.add('active');
+  panel?.classList.add('active');
+  // Ensure the tabs are scrolled into view
+  panel?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // Update Open Graph/Twitter meta tags so shared links reflect the selected partner type.
