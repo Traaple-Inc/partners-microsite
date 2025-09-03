@@ -10,7 +10,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   // Standardised primary call-to-action label
-  const CTA_TEXT = 'Click here to get started.';
+  const CTA_TEXT = 'Click here to get started';
   // Parse query parameters
   const params = new URLSearchParams(window.location.search);
   const typeParam = params.get('type');
