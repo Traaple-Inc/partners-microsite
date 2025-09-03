@@ -694,8 +694,8 @@ function updateTabContent(data) {
     // Add optional background image styling for the problem card (venue)
     if (data.problemBackgroundImage) {
       problemContent.classList.add('bg-card');
-      // Lighten overlay for better image visibility
-      problemContent.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('${data.problemBackgroundImage}')`;
+      // Use the image directly without a dark overlay
+      problemContent.style.backgroundImage = `url('${data.problemBackgroundImage}')`;
     } else {
       problemContent.classList.remove('bg-card');
       problemContent.style.backgroundImage = '';
