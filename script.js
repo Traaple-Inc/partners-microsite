@@ -8,9 +8,10 @@
 // locally with a simple thank you alert; integration with an external
 // CRM or backend can be added later.
 
+// Standardised primary call-to-action label (global)
+const CTA_TEXT = 'Click here to get started';
+
 document.addEventListener('DOMContentLoaded', function () {
-  // Standardised primary call-to-action label
-  const CTA_TEXT = 'Click here to get started';
   // Parse query parameters
   const params = new URLSearchParams(window.location.search);
   const typeParam = params.get('type');
