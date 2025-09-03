@@ -14,7 +14,9 @@ const CTA_TEXT = 'Click here to get started';
 document.addEventListener('DOMContentLoaded', function () {
   // Parse query parameters
   const params = new URLSearchParams(window.location.search);
-  const typeParam = params.get('type');
+  // Allow static pages to specify partner via meta tag
+  const metaType = document.head.querySelector('meta[name="partner-type"]')?.getAttribute('content');
+  const typeParam = params.get('type') || metaType;
   const ref = params.get('ref') || 'YOUR_REF_CODE';
   
   // Validate URL parameters

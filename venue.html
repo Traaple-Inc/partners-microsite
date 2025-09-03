@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traaple Venues Program</title>
+  <meta name="partner-type" content="venue" />
+  <!-- Static Open Graph/Twitter for venue -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Traaple Venues Program" />
+  <meta property="og:description" content="List events and tables so guests in Accra, Lagos, Nairobi and beyond can discover and book in advance." />
+  <meta property="og:image" content="venuesolution.png" />
+  <meta property="og:url" content="venue.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Traaple Venues Program" />
+  <meta name="twitter:description" content="List events and tables so guests in Accra, Lagos, Nairobi and beyond can discover and book in advance." />
+  <meta name="twitter:image" content="venuesolution.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/mont" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-chrome">
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <img class="logo-img" src="assets/logo.svg" alt="Traaple logo" />
+      </div>
+      <button class="cta-button" id="ctaHeader">Click here to get started</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1 id="heroHeadline">Sell more tables and tickets</h1>
+      <p id="heroSubtext">Hard to fill events & drive consistent traffic.</p>
+      <button class="cta-button" id="heroCTA">Click here to get started</button>
+    </div>
+  </section>
+  </div>
+
+  <section class="earnings">
+    <div class="container">
+      <h2>Earnings example</h2>
+      <p id="earningsExample">Guests spend ₵1,500 on a dinner package — you earn ₵300 in commission.</p>
+    </div>
+  </section>
+
+  <section class="partner-details">
+    <h2>Why partner with Traaple?</h2>
+    <div class="tabs">
+      <div class="tab-nav">
+        <button class="tab-button active" data-tab="problem">Problem</button>
+        <button class="tab-button" data-tab="solution">Solution</button>
+        <button class="tab-button" data-tab="how-it-works">How it Works</button>
+        <button class="tab-button" data-tab="demo">Demo</button>
+      </div>
+      <div class="tab-content">
+        <div id="problem-tab" class="tab-panel active">
+          <div class="problem-content" id="problemContent"></div>
+        </div>
+        <div id="solution-tab" class="tab-panel">
+          <div class="solution-content" id="solutionContent"></div>
+        </div>
+        <div id="how-it-works-tab" class="tab-panel">
+          <div class="steps-content">
+            <div class="step-list" id="tabStepList"></div>
+          </div>
+        </div>
+        <div id="demo-tab" class="tab-panel">
+          <div class="demo-content" id="demoContent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secondary-cta">
+    <div class="cta-content-wrapper">
+      <div class="cta-content-box">
+        <h2 id="secondaryHeadline">Ready to start?</h2>
+        <p id="secondarySubtext">Join Traaple today and unlock a new revenue stream.</p>
+        <form id="partnerForm" class="cta-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="organization">Organization / Handle</label>
+            <div class="input-with-dropdown">
+              <select id="platform" name="platform" class="platform-dropdown hidden" aria-label="Social media platform">
+                <option value="">Platform</option>
+                <option value="instagram">Instagram</option>
+                <option value="tiktok">TikTok</option>
+                <option value="youtube">YouTube</option>
+                <option value="twitter">Twitter/X</option>
+                <option value="facebook">Facebook</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="other">Other</option>
+              </select>
+              <input type="text" id="organization" name="organization" required />
+            </div>
+          </div>
+          <div class="form-group" id="locationGroup">
+            <label for="location">Location/City</label>
+            <input type="text" id="location" name="location" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group" id="propertyTypeGroup">
+            <label for="propertyType">Property Type</label>
+            <select id="propertyType" name="propertyType">
+              <option value="">Select Type</option>
+              <option value="hotel">Hotel</option>
+              <option value="resort">Resort</option>
+              <option value="boutique">Boutique Hotel</option>
+              <option value="bnb">B&B</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="bar">Bar/Lounge</option>
+              <option value="event">Event Space</option>
+              <option value="rooftop">Rooftop</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group" id="nicheGroup">
+            <label for="niche">Content Niche</label>
+            <select id="niche" name="niche">
+              <option value="">Select Niche</option>
+              <option value="travel">Travel</option>
+              <option value="food">Food</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="fashion">Fashion</option>
+              <option value="beauty">Beauty</option>
+              <option value="fitness">Fitness</option>
+              <option value="tech">Tech</option>
+              <option value="business">Business</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="cta-button">Click here to get started</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div id="thankYouOverlay" class="thank-you-overlay hidden">&nbsp;
+    <div class="thank-you-content">
+      <button class="close-button" id="closeThankYou" aria-label="Close">&times;</button>
+      <div class="thank-you-hero"></div>
+      <h2>Thank you!</h2>
+      <p>We'll be in touch to set up your first bookable experience.</p>
+      <a href="https://traaple.com" class="cta-link" target="_blank" rel="noopener">Explore how travellers already book with Traaple</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Traaple. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
