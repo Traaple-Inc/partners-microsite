@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // the underlying photo remains visible while still providing sufficient
     // contrast for the white text. Adjust the alpha values here to taste.
     heroSection.style.backgroundImage =
-      `linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25)), url('${data.ctaBackground}')`;
+      `linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('${data.ctaBackground}')`;
   }
 
   // Update steps
