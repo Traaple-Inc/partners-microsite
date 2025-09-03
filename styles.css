@@ -399,6 +399,16 @@ font-family: var(--heading-font);
   margin: 0;
 }
 
+/* Optional illustration placed in the Solution tab */
+.solution-illustration {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
 /* Steps Content in Tabs */
 .steps-content {
   padding: 2rem 0;
@@ -535,7 +545,7 @@ font-family: var(--heading-font);
 .demo-box {
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 .demo-box.left {
   flex: 0 0 30%;
@@ -545,6 +555,10 @@ font-family: var(--heading-font);
 .demo-box.right {
   flex: 0 0 70%;
   /* Allow the box to shrink on smaller screens instead of enforcing a minimum width */
+  min-width: 0;
+}
+.demo-box.full {
+  flex: 1 1 100%;
   min-width: 0;
 }
 .demo-box img {

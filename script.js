@@ -254,22 +254,17 @@ document.addEventListener('DOMContentLoaded', function () {
       secondaryHeadline: 'Boost attendance. Get listed today',
       secondarySubtext: 'Fill out the form below to join our program',
       ctaBackground: 'assets/venue/bg.jpg',
+      // Optional illustrative image to show in the Solution tab
+      solutionImage: 'venuesolution.png',
       problemHeading: 'Hard to fill events & drive consistent traffic.',
       problemContent: 'Empty tables and low attendance at events directly impact your revenue and reputation.',
       problemComposition: [
-        { icon: 'assets/emojis/wine-glass.png', size: '55px', top: '30px', left: '30%', rotation: '-10deg' },
-        { icon: 'assets/emojis/wine-glass.png', size: '60px', top: '35px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
-        { icon: 'assets/emojis/wine-glass.png', size: '50px', top: '40px', right: '30%', rotation: '12deg' }
+        { icon: 'assets/emojis/wine-glass.png', size: '60px', top: '30px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' }
       ],
       solutionHeading: 'List your events/tables on Traaple. Customers discover & pre-book.',
       solutionContent: 'Get discovered by customers looking for dining and entertainment experiences. Fill your venue with pre-booked guests.',
-      solutionComposition: [
-        { icon: 'assets/emojis/chart.png', size: '75px', top: '25px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
-        { icon: 'assets/emojis/wine-glass.png', size: '45px', top: '20px', left: '20%', rotation: '-15deg' },
-        { icon: 'assets/emojis/wine-glass.png', size: '40px', top: '25px', right: '20%', rotation: '18deg' },
-        { icon: 'assets/emojis/chef.png', size: '35px', top: '65px', left: '25%', rotation: '-8deg' },
-        { icon: 'assets/emojis/chef.png', size: '30px', top: '70px', right: '25%', rotation: '10deg' }
-      ],
+      // No emojis needed in Solution tab when image is present
+      solutionComposition: null,
       demoHeading: 'Event listing → Ticket booking',
       demoPosts: [
         {
@@ -418,16 +413,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.title = data.title;
   }
 
-  // Update logo and body class based on industry type (only venue gets dark background)
+  // Update logo; keep a consistent light background across types
   const logo = document.querySelector('.logo-img');
   document.body.className = ''; // Reset classes
-  
-  if (type === 'venue') {
-    if (logo) logo.src = 'assets/logo-white.svg';
-    document.body.classList.add('venue-bg');
-  } else {
-    if (logo) logo.src = 'assets/logo.svg';
-  }
+
+  // Use the standard logo for all partner types (no dark theme for venue)
+  if (logo) logo.src = 'assets/logo.svg';
 
   // Update hero text
   document.getElementById('heroHeadline').textContent = data.headline;
@@ -696,10 +687,16 @@ function updateTabContent(data) {
       solutionEmojiHTML += '</div>';
     }
     
+    // Optional illustrative image below the copy when provided (e.g., venue)
+    const solutionImageHTML = data.solutionImage
+      ? `<img class="solution-illustration" src="${data.solutionImage}" alt="Solution illustration" />`
+      : '';
+
     solutionContent.innerHTML = `
       ${solutionEmojiHTML}
       <h3>${data.solutionHeading}</h3>
       <p>${data.solutionContent}</p>
+      ${solutionImageHTML}
     `;
   }
 
@@ -738,6 +735,14 @@ function updateTabContent(data) {
       right.className = 'demo-box right empty-box';
       container.appendChild(left);
       container.appendChild(right);
+      demoContent.appendChild(container);
+    } else if (data.partnerType === 'venue') {
+      // Venue demo matches hotel style but uses a single full‑width placeholder
+      const container = document.createElement('div');
+      container.className = 'demo-box-container';
+      const full = document.createElement('div');
+      full.className = 'demo-box full empty-box';
+      container.appendChild(full);
       demoContent.appendChild(container);
     } else if (data.demoPosts && Array.isArray(data.demoPosts)) {
       // For influencer and other partners, render each post as an Instagram‑style card
