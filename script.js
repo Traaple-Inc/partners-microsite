@@ -121,25 +121,23 @@ document.addEventListener('DOMContentLoaded', function () {
           username: '@sarah_travels',
           avatar: 'ST',
           content: 'Just discovered this hidden gem in Bali! The sunset views are incredible 🌅',
-          cta: 'Book this experience'
+          cta: 'Book this experience',
+          // Image generated via AI and stored in assets/influencer
+          image: 'assets/influencer/influencer_post1.png'
         },
         {
           username: '@foodie_mike',
           avatar: 'FM',
           content: 'Best pasta I\'ve ever had! This chef\'s table experience was unforgettable',
-          cta: 'Book this restaurant'
+          cta: 'Book this restaurant',
+          image: 'assets/influencer/influencer_post2.png'
         },
         {
           username: '@adventure_alex',
           avatar: 'AA',
           content: 'Epic hiking trail with the most amazing views! Perfect for adventure seekers',
-          cta: 'Book this hike'
-        },
-        {
-          username: '@luxury_lisa',
-          avatar: 'LL',
-          content: 'Weekend getaway at this boutique hotel was pure bliss. Highly recommend!',
-          cta: 'Book this hotel'
+          cta: 'Book this hike',
+          image: 'assets/influencer/influencer_post3.png'
         }
       ]
     },
@@ -411,6 +409,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Determine copy based on partner type; default to influencer if unspecified
   const data = partnerData[type] || partnerData.influencer;
+  // Preserve the current partner type on the data object so the tab update logic
+  // can adjust content rendering (e.g. hotel demo layout)
+  data.partnerType = type;
 
   // Update page title
   if (data.title) {
@@ -720,21 +721,57 @@ function updateTabContent(data) {
 
   // Update demo content
   const demoContent = document.getElementById('demoContent');
-  if (demoContent && data.demoPosts) {
+  if (demoContent) {
+    // Always clear existing content
     demoContent.innerHTML = '';
-    data.demoPosts.forEach(post => {
-      const demoPost = document.createElement('div');
-      demoPost.className = 'demo-post';
-      demoPost.innerHTML = `
-        <div class="post-header">
-          <div class="avatar">${post.avatar}</div>
-          <div class="username">${post.username}</div>
-        </div>
-        <div class="post-content">${post.content}</div>
-        <button class="cta-button">${post.cta}</button>
-      `;
-      demoContent.appendChild(demoPost);
-    });
+    // Hotel partners require a different layout: two side‑by‑side boxes showing
+    // example app screens. Rather than using the demoPosts array, create a
+    // container with two boxes. Each box holds an image from the hotel assets.
+    if (data.partnerType === 'hotel') {
+      const container = document.createElement('div');
+      container.className = 'demo-box-container';
+      // Create left and right boxes without images; these will act as placeholders
+      const left = document.createElement('div');
+      left.className = 'demo-box left empty-box';
+      // Right box placeholder
+      const right = document.createElement('div');
+      right.className = 'demo-box right empty-box';
+      container.appendChild(left);
+      container.appendChild(right);
+      demoContent.appendChild(container);
+    } else if (data.demoPosts && Array.isArray(data.demoPosts)) {
+      // For influencer and other partners, render each post as an Instagram‑style card
+      data.demoPosts.forEach(post => {
+        const demoPost = document.createElement('div');
+        demoPost.className = 'demo-post';
+        let postHTML = '';
+        // Header with avatar and username
+        postHTML += `
+          <div class="post-header">
+            <div class="avatar">${post.avatar}</div>
+            <div class="username">${post.username}</div>
+          </div>
+        `;
+        // Optional image for the post
+        if (post.image) {
+          postHTML += `<img class="post-image" src="${post.image}" alt="Post image" />`;
+        }
+        // Post text content
+        postHTML += `<div class="post-content">${post.content}</div>`;
+        // Instagram‑style action icons
+        postHTML += `
+          <div class="post-actions">
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-comment"></i>
+            <i class="fa-solid fa-paper-plane"></i>
+          </div>
+        `;
+        // CTA button
+        postHTML += `<button class="cta-button">${post.cta}</button>`;
+        demoPost.innerHTML = postHTML;
+        demoContent.appendChild(demoPost);
+      });
+    }
   }
 }
 

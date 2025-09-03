@@ -202,6 +202,19 @@ font-family: var(--heading-font);
   margin-bottom: 1rem;
 }
 
+/* Make the final step in the how‑it‑works section stand out.
+   Instead of a solid circle, use the star.png graphic as the
+   background. Preserve the number overlay by keeping the text
+   colour visible. */
+.step:last-child .step-icon {
+  background-color: transparent;
+  background-image: url('assets/emojis/star.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--primary-color);
+}
+
 .step h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
@@ -392,11 +405,20 @@ font-family: var(--heading-font);
 }
 
 .steps-content .step-list {
+  /* Display the steps in a responsive grid. On small screens show two
+     columns; on larger screens (tablet/desktop) show all four in a
+     single row. */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .steps-content .step-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* Demo Section */
@@ -471,6 +493,72 @@ font-family: var(--heading-font);
   padding: 0.7rem 1.5rem;
   width: 100%;
   text-align: center;
+}
+
+/* Additional styling for Instagram‑style demo posts */
+.demo-post .post-image {
+  width: 100%;
+  /* Limit the height of post images to prevent overly tall cards */
+  height: 220px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.demo-post .post-actions {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.demo-post .post-actions i {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.demo-post .post-actions i:hover {
+  color: var(--primary-color);
+}
+
+/* Styling for the hotel demo: side‑by‑side rounded boxes */
+.demo-box-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  /* Keep the two demo boxes aligned on a single row. Using nowrap prevents them
+     from wrapping onto a second line on smaller viewports. */
+  flex-wrap: nowrap;
+  /* Stretch children to equal height so the left and right boxes align neatly */
+  align-items: stretch;
+}
+.demo-box {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.demo-box.left {
+  flex: 0 0 30%;
+  /* Allow the box to shrink on smaller screens instead of enforcing a minimum width */
+  min-width: 0;
+}
+.demo-box.right {
+  flex: 0 0 70%;
+  /* Allow the box to shrink on smaller screens instead of enforcing a minimum width */
+  min-width: 0;
+}
+.demo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder boxes for the hotel demo */
+.demo-box.empty-box {
+  background-color: #f3f3f3;
+  /* Provide a minimum height so the boxes are visible even without images */
+  min-height: 260px;
 }
 
 /* Benefits */
@@ -629,6 +717,7 @@ label {
 
 input[type="text"],
 input[type="tel"],
+input[type="email"],
 select {
   width: 100%;
   padding: 0.8rem;
@@ -641,6 +730,7 @@ select {
 
 input[type="text"]:focus,
 input[type="tel"]:focus,
+input[type="email"]:focus,
 select:focus {
   outline: none;
   border-color: var(--primary-color);
@@ -767,6 +857,7 @@ input::placeholder {
 }
 .secondary-cta .cta-form input[type="text"],
 .secondary-cta .cta-form input[type="tel"],
+.secondary-cta .cta-form input[type="email"],
 .secondary-cta .cta-form select {
   width: 100%;
   padding: 0.8rem;
@@ -779,6 +870,7 @@ input::placeholder {
 
 .secondary-cta .cta-form input[type="text"]:focus,
 .secondary-cta .cta-form input[type="tel"]:focus,
+.secondary-cta .cta-form input[type="email"]:focus,
 .secondary-cta .cta-form select:focus {
   outline: none;
   border-color: var(--primary-color);
