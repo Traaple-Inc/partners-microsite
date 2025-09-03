@@ -259,6 +259,8 @@ document.addEventListener('DOMContentLoaded', function () {
       ctaBackground: 'assets/venue/bg.jpg',
       // Optional illustrative image to show in the Solution tab
       solutionImage: 'venuesolution.png',
+      // Background image for the Problem tab card (venue only)
+      problemBackgroundImage: 'venuesolution.png',
       problemHeading: 'Hard to fill events & drive consistent traffic.',
       problemContent: 'Empty tables and low attendance at events directly impact your revenue and reputation.',
       problemComposition: [
@@ -656,7 +658,8 @@ function updateTabContent(data) {
   const problemContent = document.getElementById('problemContent');
   if (problemContent && data.problemHeading) {
     let problemEmojiHTML = '';
-    if (data.problemComposition) {
+    // If a background image is provided for the problem card, skip emojis
+    if (data.problemComposition && !data.problemBackgroundImage) {
       problemEmojiHTML = '<div class="emoji-composition">';
       data.problemComposition.forEach(emoji => {
         const styles = [
@@ -678,6 +681,15 @@ function updateTabContent(data) {
       <h3>${data.problemHeading}</h3>
       <p>${data.problemContent}</p>
     `;
+    // Add optional background image styling for the problem card (venue)
+    if (data.problemBackgroundImage) {
+      problemContent.classList.add('bg-card');
+      problemContent.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${data.problemBackgroundImage}')`;
+    } else {
+      problemContent.classList.remove('bg-card');
+      problemContent.style.backgroundImage = '';
+    }
+
     // Add navigation button to go to Solution tab
     const toSolutionBtn = document.createElement('button');
     toSolutionBtn.className = 'cta-button panel-cta';

@@ -376,6 +376,19 @@ font-family: var(--heading-font);
   margin: 0;
 }
 
+/* Problem background card (venue only): applies rounded corners and ensures legibility */
+.problem-content.bg-card {
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+}
+.problem-content.bg-card h3,
+.problem-content.bg-card p {
+  color: #ffffff;
+}
+
 /* Solution Content */
 .solution-content {
   text-align: center;
