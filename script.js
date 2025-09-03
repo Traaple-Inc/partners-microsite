@@ -835,8 +835,7 @@ function updateTabContent(data) {
             <i class="fa-solid fa-paper-plane"></i>
           </div>
         `;
-        // CTA button
-        postHTML += `<button class="cta-button">${post.cta}</button>`;
+        // Removed per-post CTA button for social media style demos
         demoPost.innerHTML = postHTML;
         demoContent.appendChild(demoPost);
       });
