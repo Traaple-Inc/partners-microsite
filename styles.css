@@ -345,8 +345,8 @@ font-family: var(--heading-font);
 
 .problem-content .emoji-composition img {
   position: absolute;
-  opacity: 0.6;
-  filter: grayscale(30%);
+  opacity: 1;
+  filter: none;
   transition: transform 0.3s ease;
 }
 
