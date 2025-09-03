@@ -134,7 +134,7 @@ button {
 .hero h1 {
   font-family: var(--heading-font);
   /* Use a lighter weight for the main headline to prevent overwhelming boldness */
-  font-weight: 500;
+  font-weight: 500; /* slightly bolder as requested */
   /* Responsive scaling for hero title */
   font-size: clamp(1.8rem, 4vw + 1rem, 3.2rem);
   line-height: 1.2;
@@ -243,6 +243,7 @@ font-family: var(--heading-font);
 }
 
 .step h3 {
+  font-family: var(--heading-font);
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   /* Medium weight for step titles to make them stand out */
@@ -419,6 +420,7 @@ font-family: var(--heading-font);
 .problem-content .float-delay-3 { animation-delay: 1.2s; }
 
 .problem-content h3 {
+  font-family: var(--heading-font);
   font-size: 2rem;
   color: #333;
   margin-bottom: 1.5rem;
@@ -486,6 +488,7 @@ font-family: var(--heading-font);
 }
 
 .solution-content h3 {
+  font-family: var(--heading-font);
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
@@ -844,6 +847,7 @@ font-family: var(--heading-font);
   background-image: url('assets/insights-support-transparent.png');
 }
 .benefit-card h3 {
+  font-family: var(--heading-font);
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   /* Medium weight for benefit titles to create clear hierarchy */
