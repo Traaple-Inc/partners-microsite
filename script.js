@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           username: '@sarah_travels',
           avatar: 'ST',
-          content: 'Just discovered this hidden gem in Bali! The sunset views are incredible 🌅',
+          content: 'Stumbled on a quiet beach near Cape Coast — palm trees, warm tide and golden sunsets. 🌅🇬🇭',
           cta: 'Book this experience',
           // Image generated via AI and stored in assets/influencer
           image: 'assets/influencer/influencer_post1.png'
@@ -131,14 +131,14 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           username: '@foodie_mike',
           avatar: 'FM',
-          content: 'Best pasta I\'ve ever had! This chef\'s table experience was unforgettable',
+          content: 'Street‑food crawl in Accra: waakye, kelewele and smoky suya — absolute perfection!',
           cta: 'Book this restaurant',
           image: 'assets/influencer/influencer_post2.png'
         },
         {
           username: '@adventure_alex',
           avatar: 'AA',
-          content: 'Epic hiking trail with the most amazing views! Perfect for adventure seekers',
+          content: 'Sunrise hike up Mount Afadja then a dip at Wli Falls — unreal views in the Volta Region! ⛰️💧',
           cta: 'Book this hike',
           image: 'assets/influencer/influencer_post3.png'
         }
