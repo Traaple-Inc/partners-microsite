@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
           content: 'Stumbled on a quiet beach near Cape Coast — palm trees, warm tide and golden sunsets. 🌅🇬🇭',
           cta: 'Book this experience',
           // Image generated via AI and stored in assets/influencer
-          image: 'assets/influencer/influencer_post1.png'
+          image: 'capecoast.png'
         },
         {
           username: '@foodie_mike',
