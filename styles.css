@@ -224,9 +224,12 @@ font-family: var(--heading-font);
   color: #ffffff;
 }
 .step:last-child .step-icon {
-  /* Remove star graphic and use white circle so the number colour shows */
-  background-image: none;
-  background-color: #ffffff;
+  /* Restore star graphic behind the number */
+  background-color: transparent;
+  background-image: url('assets/emojis/star.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   color: #0f2a47; /* Number "4" colour */
   width: 60px;
   height: 60px;
