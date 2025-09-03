@@ -413,6 +413,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.title = data.title;
   }
 
+  // Update Open Graph/Twitter metadata based on partner type
+  updateOpenGraph(data);
+
   // Update logo; keep a consistent light background across types
   const logo = document.querySelector('.logo-img');
   document.body.className = ''; // Reset classes
@@ -801,4 +804,36 @@ function initializeTabs() {
       document.getElementById(`${targetTab}-tab`).classList.add('active');
     });
   });
+}
+
+// Update Open Graph/Twitter meta tags so shared links reflect the selected partner type.
+function updateOpenGraph(data) {
+  const setMeta = (key, value, isName = false) => {
+    if (!value) return;
+    const selector = isName ? `meta[name="${key}"]` : `meta[property="${key}"]`;
+    let tag = document.head.querySelector(selector);
+    if (!tag) {
+      tag = document.createElement('meta');
+      if (isName) tag.setAttribute('name', key); else tag.setAttribute('property', key);
+      document.head.appendChild(tag);
+    }
+    tag.setAttribute('content', value);
+  };
+
+  const title = data.title || 'Traaple Partner Program';
+  const description = `${data.headline} ${data.subtext}`.trim();
+  // Prefer a purpose-made solution image for venue; otherwise use hero image or CTA background
+  const image = data.solutionImage || data.heroImage || data.ctaBackground || 'assets/hero.png';
+  const url = window.location.href;
+
+  setMeta('og:type', 'website');
+  setMeta('og:title', title);
+  setMeta('og:description', description);
+  setMeta('og:image', image);
+  setMeta('og:url', url);
+
+  setMeta('twitter:card', 'summary_large_image', true);
+  setMeta('twitter:title', title, true);
+  setMeta('twitter:description', description, true);
+  setMeta('twitter:image', image, true);
 }
