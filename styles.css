@@ -487,6 +487,22 @@ font-family: var(--heading-font);
   margin-top: 1.5rem;
 }
 
+/* Responsive type scaling for Problem/Solution copy */
+@media (max-width: 640px) {
+  .problem-content, .solution-content { padding: 1.25rem; }
+  .problem-content h3, .solution-content h3 { font-size: 1.5rem; line-height: 1.3; }
+  .problem-content p, .solution-content p { font-size: 0.98rem; line-height: 1.55; }
+  .problem-content .emoji-composition, .solution-content .emoji-composition { height: 90px; }
+  .panel-cta { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .problem-content h3, .solution-content h3 { font-size: 1.35rem; }
+  .problem-content p, .solution-content p { font-size: 0.95rem; }
+  .problem-content .emoji-composition, .solution-content .emoji-composition { height: 72px; }
+  .problem-content.bg-card .problem-top-icon { width: 48px; height: 48px; }
+}
+
 /* Center the See Demo button within the How It Works tab */
 .steps-content .panel-cta {
   display: block;
