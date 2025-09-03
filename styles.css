@@ -135,11 +135,14 @@ button {
   font-family: var(--heading-font);
   /* Use a lighter weight for the main headline to prevent overwhelming boldness */
   font-weight: 500;
-  font-size: 3.2rem;
+  /* Responsive scaling for hero title */
+  font-size: clamp(1.8rem, 4vw + 1rem, 3.2rem);
+  line-height: 1.2;
   margin-bottom: 1.2rem;
 }
 .hero p {
-  font-size: 1.3rem;
+  /* Responsive scaling for hero subtext */
+  font-size: clamp(1rem, 1.2vw + 0.8rem, 1.3rem);
   margin-bottom: 2.8rem;
   max-width: 500px;
   margin-left: auto;
@@ -1215,9 +1218,6 @@ body.venue-bg footer {
   }
   .step {
     flex: 1 1 100%;
-  }
-  .hero h1 {
-    font-size: 2.2rem;
   }
 
   .hero {
