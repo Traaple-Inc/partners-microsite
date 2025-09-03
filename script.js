@@ -599,7 +599,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       try {
         // Submit to API
-        const response = await fetch('https://api.traaple.com/api/partners/register', {
+        const response = await fetch('https://api.traaple.com/api/partnership-requests', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
