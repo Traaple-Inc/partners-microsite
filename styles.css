@@ -1222,6 +1222,8 @@ body.venue-bg footer {
 
   .hero {
     height: 60vh;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .cta-button {
@@ -1238,6 +1240,20 @@ body.venue-bg footer {
   /* Stack benefit cards on small screens */
   .benefits-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Narrow phone adjustments */
+@media (max-width: 480px) {
+  .hero {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  .secondary-cta {
+    padding: 3rem 0.75rem;
+  }
+  .navbar {
+    padding: 0.9rem 1rem;
   }
 }
 
