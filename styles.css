@@ -221,7 +221,10 @@ font-family: var(--heading-font);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  color: var(--primary-color);
+  /* Make the final step number white and the icon slightly larger */
+  color: #fff;
+  width: 60px;
+  height: 60px;
 }
 
 .step h3 {
