@@ -396,9 +396,14 @@ font-family: var(--heading-font);
 .problem-content.bg-card {
   color: #ffffff;
   border-radius: 16px;
-  padding: 2rem;
+  padding: 3rem 2.25rem; /* extra padding so text breathes */
   background-size: cover;
   background-position: center;
+}
+.problem-content.bg-card .panel-cta { margin-top: 2rem; }
+
+@media (max-width: 480px) {
+  .problem-content.bg-card { padding: 2rem 1.25rem; }
 }
 .problem-content.bg-card h3,
 .problem-content.bg-card p {
