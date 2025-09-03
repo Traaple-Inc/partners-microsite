@@ -680,15 +680,22 @@ function updateTabContent(data) {
       problemEmojiHTML += '</div>';
     }
     
+    // Optional top icon for venue when using a background image
+    const topIconHTML = (data.partnerType === 'venue' && data.problemBackgroundImage)
+      ? `<img class="problem-top-icon" src="assets/emojis/wine-glass.png" alt="Wine glass" />`
+      : '';
+
     problemContent.innerHTML = `
       ${problemEmojiHTML}
+      ${topIconHTML}
       <h3>${data.problemHeading}</h3>
       <p>${data.problemContent}</p>
     `;
     // Add optional background image styling for the problem card (venue)
     if (data.problemBackgroundImage) {
       problemContent.classList.add('bg-card');
-      problemContent.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${data.problemBackgroundImage}')`;
+      // Lighten overlay for better image visibility
+      problemContent.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('${data.problemBackgroundImage}')`;
     } else {
       problemContent.classList.remove('bg-card');
       problemContent.style.backgroundImage = '';

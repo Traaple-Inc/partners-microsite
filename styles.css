@@ -400,6 +400,12 @@ font-family: var(--heading-font);
   background-size: cover;
   background-position: center;
 }
+.problem-content.bg-card .problem-top-icon {
+  width: 56px;
+  height: 56px;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
 .problem-content.bg-card .panel-cta { margin-top: 2rem; }
 
 @media (max-width: 480px) {
