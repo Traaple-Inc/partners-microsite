@@ -135,7 +135,7 @@ button {
 .hero h1 {
   font-family: var(--heading-font);
   /* Use a lighter weight for the main headline to prevent overwhelming boldness */
-  font-weight: 500; /* slightly bolder as requested */
+  font-weight: 600; /* medium bold */
   /* Responsive scaling for hero title */
   font-size: clamp(1.8rem, 4vw + 1rem, 3.2rem);
   line-height: 1.2;
