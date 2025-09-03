@@ -215,14 +215,19 @@ font-family: var(--heading-font);
    Instead of a solid circle, use the star.png graphic as the
    background. Preserve the number overlay by keeping the text
    colour visible. */
+/* Style the 4th (final) step card */
+.step:last-child {
+  background-color: #0f2a47;
+}
+.step:last-child h3,
+.step:last-child p {
+  color: #ffffff;
+}
 .step:last-child .step-icon {
-  background-color: transparent;
-  background-image: url('assets/emojis/star.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  /* Make the final step number white and the icon slightly larger */
-  color: #fff;
+  /* Remove star graphic and use white circle so the number colour shows */
+  background-image: none;
+  background-color: #ffffff;
+  color: #0f2a47; /* Number "4" colour */
   width: 60px;
   height: 60px;
 }
@@ -426,6 +431,13 @@ font-family: var(--heading-font);
 .demo-content .panel-cta {
   display: block;
   margin: 1.5rem auto 0;
+}
+
+/* In the influencer demo (grid layout), span full width and center */
+.demo-content:not(.wide-layout) .panel-cta {
+  grid-column: 1 / -1;
+  justify-self: center;
+  display: inline-block;
 }
 
 /* Optional illustration placed in the Solution tab */
