@@ -584,7 +584,8 @@ font-family: var(--heading-font);
   background-color: #ffffff;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  /* Replace shadow with a subtle border for influencer demo cards */
+  border: 1px solid #e6ecff;
   text-align: left;
   transition: transform 0.3s ease;
 }
