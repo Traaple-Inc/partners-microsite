@@ -39,7 +39,9 @@
 body {
   font-family: var(--body-font);
   color: var(--text-color);
-  background-color: var(--background-color);
+  /* Use the same light tint used by the Earnings section so the area around
+     the hero card margins matches the site chrome. */
+  background-color: var(--secondary-color);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -69,6 +71,9 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 2rem;
+  /* Match the Earnings section background */
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid #e6ecff;
 }
 .brand {
   display: flex;
