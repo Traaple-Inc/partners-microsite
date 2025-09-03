@@ -451,6 +451,13 @@ font-family: var(--heading-font);
   grid-template-columns: repeat(2, 1fr);
 }
 
+/* On small mobile screens, stack steps in a single column */
+@media (max-width: 480px) {
+  .steps-content .step-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (min-width: 768px) {
   .steps-content .step-list {
     grid-template-columns: repeat(4, 1fr);
