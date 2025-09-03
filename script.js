@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
           avatar: 'FM',
           content: 'Street‑food crawl in Accra: waakye, kelewele and smoky suya — absolute perfection!',
           cta: 'Book this restaurant',
-          image: 'assets/influencer/influencer_post2.png'
+          image: 'waakye.png'
         },
         {
           username: '@adventure_alex',
