@@ -1298,9 +1298,9 @@ body.venue-bg footer {
   color: #333;
 }
 
-.thank-you-overlay .cta-link {
-  color: #0057ff;
-  text-decoration: underline;
+.thank-you-content .cta-link {
+  color: #fff !important;
+  text-decoration: none !important;
   font-weight: 500;
 }
 
