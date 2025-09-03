@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
       problemContent: 'You create amazing content and get great engagement, but struggle to monetize your influence effectively.',
       problemComposition: [
         { icon: 'assets/emojis/gradient-heart.png', size: '50px', top: '15px', left: '35%', rotation: '-15deg' },
-        { icon: 'assets/emojis/gradient-heart.png', size: '55px', top: '30px', left: '50%', rotation: '20deg', transform: 'translateX(-50%)' },
+        { icon: 'assets/emojis/gradient-heart.png', size: '70px', top: '30px', left: '50%', rotation: '20deg', transform: 'translateX(-50%)' },
         { icon: 'assets/emojis/gradient-heart.png', size: '45px', top: '45px', right: '35%', rotation: '0deg' }
       ],
       solutionHeading: 'With Traaple, your posts become bookable experiences. Earn commission every time someone books.',
@@ -661,17 +661,21 @@ function updateTabContent(data) {
     // If a background image is provided for the problem card, skip emojis
     if (data.problemComposition && !data.problemBackgroundImage) {
       problemEmojiHTML = '<div class="emoji-composition">';
-      data.problemComposition.forEach(emoji => {
+      data.problemComposition.forEach((emoji, idx) => {
         const styles = [
           `width: ${emoji.size}`,
           `height: ${emoji.size}`,
-          `top: ${emoji.top}`,
+          // For influencer hearts, animate soft float by adjusting margin-top
+          data.partnerType === 'influencer' && emoji.top ? `--top-base: ${emoji.top}` : `top: ${emoji.top}`,
+          data.partnerType === 'influencer' ? 'top: var(--top-base)' : '',
+          data.partnerType === 'influencer' ? 'margin-top: 0' : '',
           emoji.left ? `left: ${emoji.left}` : '',
           emoji.right ? `right: ${emoji.right}` : '',
           `transform: rotate(${emoji.rotation})${emoji.transform ? ` ${emoji.transform}` : ''}`
         ].filter(s => s).join('; ');
-        
-        problemEmojiHTML += `<img src="${emoji.icon}" alt="Problem emoji" style="${styles}" />`;
+
+        const floatClasses = data.partnerType === 'influencer' ? ` class="float-emoji float-delay-${idx + 1}${idx === 1 ? ' float-emoji-lg' : ''}"` : '';
+        problemEmojiHTML += `<img${floatClasses} src="${emoji.icon}" alt="Problem emoji" style="${styles}" />`;
       });
       problemEmojiHTML += '</div>';
     }

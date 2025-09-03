@@ -361,6 +361,22 @@ font-family: var(--heading-font);
   transition: transform 0.3s ease;
 }
 
+/* Soft floating animation for influencer hearts */
+@keyframes floatMargin {
+  0% { margin-top: 0; }
+  50% { margin-top: -8px; }
+  100% { margin-top: 0; }
+}
+.problem-content .float-emoji {
+  animation: floatMargin 4.5s ease-in-out infinite;
+}
+.problem-content .float-emoji.float-emoji-lg {
+  animation-duration: 5.5s;
+}
+.problem-content .float-delay-1 { animation-delay: 0s; }
+.problem-content .float-delay-2 { animation-delay: 0.6s; }
+.problem-content .float-delay-3 { animation-delay: 1.2s; }
+
 .problem-content h3 {
   font-size: 2rem;
   color: #333;
