@@ -280,7 +280,7 @@ font-family: var(--heading-font);
   background-color: #fff;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 5rem 2rem 3rem;
 }
 
 .partner-details h2 {

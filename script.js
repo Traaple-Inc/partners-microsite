@@ -578,9 +578,19 @@ document.addEventListener('DOMContentLoaded', function () {
       
       // Get form data
       const formData = new FormData(form);
+      const email = formData.get('email');
+      
+      // Validate email has domain extension
+      if (!email || !email.includes('@') || !email.includes('.') || 
+          email.split('@')[1]?.split('.').length < 2 || 
+          email.split('@')[1]?.split('.').some(part => part.length === 0)) {
+        alert('Please enter a valid email address with a domain extension (e.g., user@example.com)');
+        return;
+      }
+      
       const submitData = {
         name: formData.get('name'),
-        email: formData.get('email'),
+        email: email,
         organization: formData.get('organization'),
         location: formData.get('location') || null,
         phone: formData.get('phone'),
