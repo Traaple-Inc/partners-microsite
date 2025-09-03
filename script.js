@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Optional illustrative image to show in the Solution tab
       solutionImage: 'venuesolution.png',
       // Background image for the Problem tab card (venue only)
-      problemBackgroundImage: 'venuesolution.png',
+      problemBackgroundImage: 'assets/venue/problem-bg.jpg',
       problemHeading: 'Hard to fill events & drive consistent traffic.',
       problemContent: 'Empty tables and low attendance at events directly impact your revenue and reputation.',
       problemComposition: [
