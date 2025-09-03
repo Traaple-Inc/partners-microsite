@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
       title: 'Traaple Hotel Partners',
       headline: 'Enhance guest stays and earn more',
       subtext:
-        'You don\'t always have answers when guests ask "What can I do nearby?"',
+        'You don\'t always have answers when guests ask “What can I do nearby in Accra, Lagos or Nairobi?”',
       steps: [
         {
           title: 'Guest scans QR code',
@@ -186,12 +186,12 @@ document.addEventListener('DOMContentLoaded', function () {
       secondarySubtext: 'Fill out the form below to join our program',
       ctaBackground: 'assets/hotel/bg.jpg',
       problemHeading: 'You don\'t always have answers when guests ask "What can I do nearby?"',
-      problemContent: 'Guests constantly ask for local recommendations, putting pressure on your staff and potentially impacting guest satisfaction.',
+      problemContent: 'Across African cities, guests constantly ask for local recommendations, putting pressure on your staff and risking missed opportunities to delight.',
       problemComposition: [
         { icon: 'assets/emojis/hotel.png', size: '70px', top: '25px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' }
       ],
       solutionHeading: 'Guests book experiences. You earn a share instantly.',
-      solutionContent: 'QR codes in rooms provide instant access to curated local experiences. Your guests get great recommendations, and you earn commission on every booking.',
+      solutionContent: 'QR codes in rooms provide instant access to curated African experiences — food tours, safaris, nightlife and more. Guests get great recommendations while you earn on every booking.',
       solutionComposition: [
         { icon: 'assets/emojis/hotel.png', size: '65px', top: '30px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' },
         { icon: 'assets/emojis/star.png', size: '40px', top: '10px', left: '25%', rotation: '-20deg' },
@@ -262,12 +262,12 @@ document.addEventListener('DOMContentLoaded', function () {
       // Background image for the Problem tab card (venue only)
       problemBackgroundImage: 'assets/venue/problem-bg.jpg',
       problemHeading: 'Hard to fill events & drive consistent traffic.',
-      problemContent: 'Empty tables and low attendance at events directly impact your revenue and reputation.',
+      problemContent: 'In African nightlife hubs — from Accra to Lagos and Nairobi — empty tables and low attendance on off‑peak nights directly impact revenue.',
       problemComposition: [
         { icon: 'assets/emojis/wine-glass.png', size: '60px', top: '30px', left: '50%', rotation: '0deg', transform: 'translateX(-50%)' }
       ],
       solutionHeading: 'List your events/tables on Traaple. Customers discover & pre-book.',
-      solutionContent: 'Get discovered by customers looking for dining and entertainment experiences. Fill your venue with pre-booked guests.',
+      solutionContent: 'Get discovered by customers looking for dining and entertainment across Africa. Fill your venue with pre‑booked guests in cities like Accra, Lagos, Nairobi and Cape Town.',
       // No emojis needed in Solution tab when image is present
       solutionComposition: null,
       demoHeading: 'Event listing → Ticket booking',
