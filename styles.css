@@ -287,6 +287,21 @@ font-family: var(--heading-font);
   margin-bottom: 3rem;
 }
 
+/* Responsive scaling for the partner section title */
+@media (max-width: 768px) {
+  .partner-details h2 {
+    font-size: 2rem;
+    margin-bottom: 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-details h2 {
+    font-size: 1.65rem;
+    margin-bottom: 2rem;
+  }
+}
+
 .tabs {
   width: 100%;
 }
