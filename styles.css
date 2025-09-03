@@ -197,13 +197,13 @@ font-family: var(--heading-font);
 }
 
 .step-icon {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #fff;
   background-color: var(--primary-color);
-  width: 48px;
-  height: 48px;
-  line-height: 48px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -231,8 +231,8 @@ font-family: var(--heading-font);
   background-repeat: no-repeat;
   background-position: center;
   color: #0f2a47; /* Number "4" colour */
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
 }
 
 .step h3 {
