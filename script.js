@@ -730,9 +730,11 @@ function updateTabContent(data) {
       // Create left and right boxes without images; these will act as placeholders
       const left = document.createElement('div');
       left.className = 'demo-box left empty-box';
+      left.innerHTML = '<div class="placeholder-text">App screen preview</div>';
       // Right box placeholder
       const right = document.createElement('div');
       right.className = 'demo-box right empty-box';
+      right.innerHTML = '<div class="placeholder-text">App screen preview</div>';
       container.appendChild(left);
       container.appendChild(right);
       demoContent.appendChild(container);
@@ -742,6 +744,7 @@ function updateTabContent(data) {
       container.className = 'demo-box-container';
       const full = document.createElement('div');
       full.className = 'demo-box full empty-box';
+      full.innerHTML = '<div class="placeholder-text">Event listing / booking preview</div>';
       container.appendChild(full);
       demoContent.appendChild(container);
     } else if (data.demoPosts && Array.isArray(data.demoPosts)) {
