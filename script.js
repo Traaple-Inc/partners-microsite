@@ -681,7 +681,7 @@ function updateTabContent(data) {
     // Add navigation button to go to Solution tab
     const toSolutionBtn = document.createElement('button');
     toSolutionBtn.className = 'cta-button panel-cta';
-    toSolutionBtn.textContent = CTA_TEXT;
+    toSolutionBtn.textContent = 'See Solution';
     toSolutionBtn.addEventListener('click', () => activateTab('solution'));
     problemContent.appendChild(toSolutionBtn);
   }
@@ -721,7 +721,7 @@ function updateTabContent(data) {
     // Add navigation button to go to How it Works
     const toHowBtn = document.createElement('button');
     toHowBtn.className = 'cta-button panel-cta';
-    toHowBtn.textContent = CTA_TEXT;
+    toHowBtn.textContent = 'How it works';
     toHowBtn.addEventListener('click', () => activateTab('how-it-works'));
     solutionContent.appendChild(toHowBtn);
   }
@@ -745,7 +745,7 @@ function updateTabContent(data) {
     if (stepsPanel) {
       const toDemoBtn = document.createElement('button');
       toDemoBtn.className = 'cta-button panel-cta';
-      toDemoBtn.textContent = CTA_TEXT;
+      toDemoBtn.textContent = 'See Demo';
       toDemoBtn.addEventListener('click', () => activateTab('demo'));
       stepsPanel.appendChild(toDemoBtn);
     }
