@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
           avatar: 'AA',
           content: 'Sunrise hike up Mount Afadja then a dip at Wli Falls — unreal views in the Volta Region! ⛰️💧',
           cta: 'Book this hike',
-          image: 'assets/influencer/influencer_post3.png'
+          image: 'volta.png'
         }
       ]
     },
