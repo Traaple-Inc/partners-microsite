@@ -982,7 +982,8 @@ input::placeholder {
   border-radius: 24px;
   padding: 1rem;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600; /* medium-bold */
+  font-family: var(--heading-font);
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -1098,7 +1099,8 @@ input::placeholder {
   border-radius: 24px;
   padding: 1rem;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600; /* medium-bold */
+  font-family: var(--heading-font);
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
