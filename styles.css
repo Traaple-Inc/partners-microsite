@@ -1010,10 +1010,21 @@ body.venue-bg .benefit-card {
 
 /* Footer */
 footer {
-  background-color: #e7eff9;
-  text-align: center;
-  padding: 2rem 0;
+  background-color: #0a1f35;
+  padding: 2rem;
   font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .footer-logo {
+  height: 35px;
+}
+
+footer p {
+  color: #ffffff;
+  margin: 0;
 }
 
 body.venue-bg footer {
