@@ -435,7 +435,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const propertyTypeGroup = document.getElementById('propertyTypeGroup');
   const nicheGroup = document.getElementById('nicheGroup');
   const phoneField = document.getElementById('phone');
-  const phoneLabel = document.querySelector('label[for="phone"]');
   
   // Reset visibility
   [locationGroup, propertyTypeGroup, nicheGroup].forEach(group => {
