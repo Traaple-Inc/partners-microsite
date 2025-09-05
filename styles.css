@@ -836,7 +836,7 @@ input::placeholder {
 .secondary-cta .cta-content-box h2 {
   font-family: var(--heading-font);
   /* Medium weight for the CTA heading to make it prominent */
-  font-weight: 600;
+  font-weight: 700;
   font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
