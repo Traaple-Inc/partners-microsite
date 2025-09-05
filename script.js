@@ -375,9 +375,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Use the standard logo for all partner types (no dark theme for venue)
   if (logo) logo.src = 'assets/logo.svg';
 
-  // Update hero text
-  document.getElementById('heroHeadline').textContent = data.headline;
-  document.getElementById('heroSubtext').textContent = data.subtext;
+  // Update hero text (if elements exist)
+  const heroHeadline = document.getElementById('heroHeadline');
+  const heroSubtext = document.getElementById('heroSubtext');
+  if (heroHeadline) heroHeadline.textContent = data.headline;
+  if (heroSubtext) heroSubtext.textContent = data.subtext;
   // Standardise CTA labels; header uses a shorter label
   const headerCTA = document.getElementById('ctaHeader');
   const heroCTA = document.getElementById('heroCTA');
@@ -407,8 +409,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Update earnings example
-  document.getElementById('earningsExample').textContent = data.example;
+  // Update earnings example (if element exists)
+  const earningsExample = document.getElementById('earningsExample');
+  if (earningsExample) earningsExample.textContent = data.example;
 
   // Update tab content
   updateTabContent(data);
@@ -485,15 +488,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Add click handlers for CTAs - scroll to form instead of external redirect
-  document.getElementById('heroCTA').addEventListener('click', (e) => {
-    e.preventDefault();
-    scrollToForm();
-  });
-  document.getElementById('ctaHeader').addEventListener('click', (e) => {
-    e.preventDefault();
-    scrollToForm();
-  });
+  // Add click handlers for CTAs - scroll to form instead of external redirect (if elements exist)
+  if (heroCTA) {
+    heroCTA.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToForm();
+    });
+  }
+  if (headerCTA) {
+    headerCTA.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToForm();
+    });
+  }
   // Assign scroll behavior to the secondary CTA if it exists (the form has replaced this button on most pages)
   const secondaryCTAButton = document.getElementById('secondaryCTA');
   if (secondaryCTAButton) {
