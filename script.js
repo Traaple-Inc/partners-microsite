@@ -1,4 +1,4 @@
-// Traaple Partner Microsite Behaviour
+// Traaple Partner Microsite Behaviour - Updated
 //
 // This script customises the partner microsite based on URL parameters.
 // It updates the headline, subtext, earnings example and referral links
