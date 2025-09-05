@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   
   const type = typeParam.toLowerCase();
-  const supportedTypes = ['influencer', 'hotel', 'venue'];
+  const supportedTypes = ['influencer', 'hotel', 'venue', 'conference', 'blog', 'nightlife'];
   
   if (!supportedTypes.includes(type)) {
     // Show "Coming Soon" for unsupported types

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traaple Blog Partners</title>
+  <meta name="partner-type" content="blog" />
+  <!-- Static Open Graph/Twitter for blog -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Traaple Blog Partners" />
+  <meta property="og:description" content="Turn stories into bookings. Partner with Traaple to design co-branded experiences. Earn revenue every time your audience books." />
+  <meta property="og:image" content="assets/blog_hero.jpg" />
+  <meta property="og:url" content="blog.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Traaple Blog Partners" />
+  <meta name="twitter:description" content="Turn stories into bookings. Partner with Traaple to design co-branded experiences. Earn revenue every time your audience books." />
+  <meta name="twitter:image" content="assets/blog_hero.jpg" />
+  <link rel="canonical" href="blog.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/mont" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <section class="secondary-cta">
+    <div class="cta-content-wrapper">
+      <div class="cta-content-box">
+        <h2 id="secondaryHeadline">Turn stories into bookings</h2>
+        <p id="secondarySubtext">Turn your content into real-life experiences. Partner with Traaple to design co-branded trips, food crawls, or themed events.</p>
+        <form id="partnerForm" class="cta-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="organization">Blog / Website Name</label>
+            <div class="input-with-dropdown">
+              <select id="platform" name="platform" class="platform-dropdown hidden" aria-label="Social media platform">
+                <option value="">Platform</option>
+                <option value="instagram">Instagram</option>
+                <option value="tiktok">TikTok</option>
+                <option value="youtube">YouTube</option>
+                <option value="twitter">Twitter/X</option>
+                <option value="facebook">Facebook</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="other">Other</option>
+              </select>
+              <input type="text" id="organization" name="organization" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Monthly Readers / Visitors</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <button type="submit" class="cta-button">Click here to get started</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div id="thankYouOverlay" class="thank-you-overlay hidden">&nbsp;
+    <div class="thank-you-content">
+      <button class="close-button" id="closeThankYou" aria-label="Close">&times;</button>
+      <div class="thank-you-hero"></div>
+      <h2>Thank you!</h2>
+      <p>We'll be in touch to set up your first bookable experience.</p>
+      <a href="https://traaple.com" class="cta-link" target="_blank" rel="noopener">Explore how travellers already book with Traaple</a>
+    </div>
+  </div>
+
+  <footer>
+    <img class="footer-logo" src="assets/logo-white.svg" alt="Traaple logo" />
+    <p>&copy; <span id="year"></span> Traaple. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
