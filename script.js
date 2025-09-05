@@ -420,10 +420,14 @@ document.addEventListener('DOMContentLoaded', function () {
   initializeTabs();
 
 
-  // Update form labels and placeholders
-  document.querySelector('label[for="name"]').textContent = data.formLabels.name;
-  document.querySelector('label[for="organization"]').textContent = data.formLabels.organization;
-  document.querySelector('label[for="phone"]').textContent = data.formLabels.phone;
+  // Update form labels and placeholders (if they exist)
+  const nameLabel = document.querySelector('label[for="name"]');
+  const orgLabel = document.querySelector('label[for="organization"]');
+  const phoneLabel = document.querySelector('label[for="phone"]');
+  
+  if (nameLabel && data.formLabels) nameLabel.textContent = data.formLabels.name;
+  if (orgLabel && data.formLabels) orgLabel.textContent = data.formLabels.organization;
+  if (phoneLabel && data.formLabels) phoneLabel.textContent = data.formLabels.phone;
 
   // Show/hide form fields based on partner type
   const platformDropdown = document.getElementById('platform');
