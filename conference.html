@@ -39,20 +39,19 @@
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email" required />
           </div>
-          <div class="form-group">
-            <label for="organization">Conference / Event Name</label>
-            <div class="input-with-dropdown">
-              <select id="platform" name="platform" class="platform-dropdown hidden" aria-label="Social media platform">
-                <option value="">Platform</option>
-                <option value="instagram">Instagram</option>
-                <option value="tiktok">TikTok</option>
-                <option value="youtube">YouTube</option>
-                <option value="twitter">Twitter/X</option>
-                <option value="facebook">Facebook</option>
-                <option value="linkedin">LinkedIn</option>
-                <option value="other">Other</option>
-              </select>
-              <input type="text" id="organization" name="organization" required />
+          <!-- Multiple Events -->
+          <div class="form-group" id="eventsGroup">
+            <label>Events/Conferences</label>
+            <div class="multiple-field-container">
+              <div id="eventsContainer">
+                <div class="event-item" data-index="0">
+                  <input type="text" name="event_name_0" placeholder="Event/Conference Name" required />
+                  <input type="date" name="event_date_0" placeholder="Event Date" required />
+                  <input type="text" name="event_location_0" placeholder="Location" required />
+                  <button type="button" class="remove-item" onclick="removeEvent(this)" style="display: none;">×</button>
+                </div>
+              </div>
+              <button type="button" class="add-item" onclick="addEvent()">+ Add Event</button>
             </div>
           </div>
           <div class="form-group">

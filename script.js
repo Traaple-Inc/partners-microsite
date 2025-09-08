@@ -543,17 +543,22 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
       
+      // Collect multiple fields data
+      const multipleFieldsData = collectMultipleFieldsData(formData);
+      
       const submitData = {
         name: formData.get('name'),
         email: email,
-        organization: formData.get('organization'),
+        organization: formData.get('organization') || multipleFieldsData.primaryInfo,
         location: formData.get('location') || null,
         phone: formData.get('phone'),
         platform: formData.get('platform') || null,
         propertyType: formData.get('propertyType') || null,
-        niche: formData.get('niche') || null,
+        niche: formData.get('niche') || multipleFieldsData.additionalInfo,
         partnerType: type,
-        referralCode: ref
+        referralCode: ref,
+        // Store multiple fields data as JSON string in existing fields to avoid API changes
+        multipleFieldsJson: JSON.stringify(multipleFieldsData.items)
       };
 
       // Disable submit button during submission
@@ -800,4 +805,239 @@ function updateOpenGraph(data) {
   setMeta('twitter:title', title, true);
   setMeta('twitter:description', description, true);
   setMeta('twitter:image', image, true);
+}
+
+// Multiple Fields Functionality
+
+// Social Profile Functions (for influencer.html)
+function addSocialProfile() {
+  const container = document.getElementById('socialProfilesContainer');
+  const items = container.querySelectorAll('.social-profile-item');
+  const newIndex = items.length;
+  
+  const newItem = document.createElement('div');
+  newItem.className = 'social-profile-item';
+  newItem.setAttribute('data-index', newIndex);
+  
+  newItem.innerHTML = `
+    <select name="social_platform_${newIndex}" class="social-platform" required>
+      <option value="">Select Platform</option>
+      <option value="instagram">Instagram</option>
+      <option value="tiktok">TikTok</option>
+      <option value="youtube">YouTube</option>
+      <option value="twitter">Twitter/X</option>
+      <option value="facebook">Facebook</option>
+      <option value="linkedin">LinkedIn</option>
+      <option value="other">Other</option>
+    </select>
+    <input type="text" name="social_handle_${newIndex}" placeholder="Handle/Username" required />
+    <input type="number" name="social_followers_${newIndex}" placeholder="Followers" required />
+    <button type="button" class="remove-item" onclick="removeSocialProfile(this)">×</button>
+  `;
+  
+  container.appendChild(newItem);
+  updateRemoveButtons('socialProfilesContainer');
+}
+
+function removeSocialProfile(button) {
+  const container = document.getElementById('socialProfilesContainer');
+  const item = button.parentElement;
+  
+  if (container.children.length > 1) {
+    item.remove();
+    updateRemoveButtons('socialProfilesContainer');
+  }
+}
+
+// Venue Functions (for venue.html)
+function addVenue() {
+  const container = document.getElementById('venuesContainer');
+  const items = container.querySelectorAll('.venue-item');
+  const newIndex = items.length;
+  
+  const newItem = document.createElement('div');
+  newItem.className = 'venue-item';
+  newItem.setAttribute('data-index', newIndex);
+  
+  newItem.innerHTML = `
+    <input type="text" name="venue_name_${newIndex}" placeholder="Venue Name" required />
+    <input type="text" name="venue_location_${newIndex}" placeholder="Location/Address" required />
+    <select name="venue_type_${newIndex}" required>
+      <option value="">Select Type</option>
+      <option value="hotel">Hotel</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="bar">Bar</option>
+      <option value="club">Club</option>
+      <option value="lounge">Lounge</option>
+      <option value="resort">Resort</option>
+      <option value="cafe">Cafe</option>
+      <option value="rooftop">Rooftop</option>
+      <option value="brewery">Brewery</option>
+      <option value="nightclub">Nightclub</option>
+      <option value="pub">Pub</option>
+      <option value="bistro">Bistro</option>
+      <option value="guesthouse">Guesthouse</option>
+      <option value="lodge">Lodge</option>
+      <option value="event_space">Event Space</option>
+      <option value="other">Other</option>
+    </select>
+    <input type="number" name="venue_capacity_${newIndex}" placeholder="Maximum Capacity" required />
+    <button type="button" class="remove-item" onclick="removeVenue(this)">×</button>
+  `;
+  
+  container.appendChild(newItem);
+  updateRemoveButtons('venuesContainer');
+}
+
+function removeVenue(button) {
+  const container = document.getElementById('venuesContainer');
+  const item = button.parentElement;
+  
+  if (container.children.length > 1) {
+    item.remove();
+    updateRemoveButtons('venuesContainer');
+  }
+}
+
+// Event Functions (for conference.html)
+function addEvent() {
+  const container = document.getElementById('eventsContainer');
+  const items = container.querySelectorAll('.event-item');
+  const newIndex = items.length;
+  
+  const newItem = document.createElement('div');
+  newItem.className = 'event-item';
+  newItem.setAttribute('data-index', newIndex);
+  
+  newItem.innerHTML = `
+    <input type="text" name="event_name_${newIndex}" placeholder="Event/Conference Name" required />
+    <input type="date" name="event_date_${newIndex}" placeholder="Event Date" required />
+    <input type="text" name="event_location_${newIndex}" placeholder="Location" required />
+    <button type="button" class="remove-item" onclick="removeEvent(this)">×</button>
+  `;
+  
+  container.appendChild(newItem);
+  updateRemoveButtons('eventsContainer');
+}
+
+function removeEvent(button) {
+  const container = document.getElementById('eventsContainer');
+  const item = button.parentElement;
+  
+  if (container.children.length > 1) {
+    item.remove();
+    updateRemoveButtons('eventsContainer');
+  }
+}
+
+// Helper function to show/hide remove buttons
+function updateRemoveButtons(containerId) {
+  const container = document.getElementById(containerId);
+  const items = container.children;
+  
+  for (let i = 0; i < items.length; i++) {
+    const removeBtn = items[i].querySelector('.remove-item');
+    if (removeBtn) {
+      removeBtn.style.display = items.length > 1 ? 'block' : 'none';
+    }
+  }
+}
+
+// Function to collect multiple fields data from form
+function collectMultipleFieldsData(formData) {
+  const items = [];
+  let primaryInfo = '';
+  let additionalInfo = '';
+  
+  // Get all form entries
+  const entries = Array.from(formData.entries());
+  
+  // Group by field type and index
+  const groupedFields = {};
+  
+  entries.forEach(([name, value]) => {
+    if (name.includes('_')) {
+      const parts = name.split('_');
+      if (parts.length >= 3) {
+        const fieldType = parts[0]; // social, venue, event
+        const fieldName = parts[1]; // platform, handle, followers, name, location, type, date
+        const index = parts[2];
+        
+        if (!groupedFields[fieldType]) {
+          groupedFields[fieldType] = {};
+        }
+        if (!groupedFields[fieldType][index]) {
+          groupedFields[fieldType][index] = {};
+        }
+        groupedFields[fieldType][index][fieldName] = value;
+      }
+    }
+  });
+  
+  // Process social profiles (influencer)
+  if (groupedFields.social) {
+    Object.keys(groupedFields.social).forEach(index => {
+      const profile = groupedFields.social[index];
+      items.push({
+        type: 'social',
+        platform: profile.platform || '',
+        handle: profile.handle || '',
+        followers: profile.followers || ''
+      });
+    });
+    
+    // Set primary info for organization field
+    const firstProfile = groupedFields.social['0'];
+    if (firstProfile) {
+      primaryInfo = firstProfile.handle || '';
+      additionalInfo = `${firstProfile.platform || ''} - ${firstProfile.followers || ''} followers`;
+    }
+  }
+  
+  // Process venues
+  if (groupedFields.venue) {
+    Object.keys(groupedFields.venue).forEach(index => {
+      const venue = groupedFields.venue[index];
+      items.push({
+        type: 'venue',
+        name: venue.name || '',
+        location: venue.location || '',
+        venueType: venue.type || '',
+        capacity: venue.capacity || ''
+      });
+    });
+    
+    // Set primary info for organization field
+    const firstVenue = groupedFields.venue['0'];
+    if (firstVenue) {
+      primaryInfo = firstVenue.name || '';
+      additionalInfo = `${firstVenue.type || ''} in ${firstVenue.location || ''} (Capacity: ${firstVenue.capacity || 'N/A'})`;
+    }
+  }
+  
+  // Process events (conference)
+  if (groupedFields.event) {
+    Object.keys(groupedFields.event).forEach(index => {
+      const event = groupedFields.event[index];
+      items.push({
+        type: 'event',
+        name: event.name || '',
+        date: event.date || '',
+        location: event.location || ''
+      });
+    });
+    
+    // Set primary info for organization field
+    const firstEvent = groupedFields.event['0'];
+    if (firstEvent) {
+      primaryInfo = firstEvent.name || '';
+      additionalInfo = `Event on ${firstEvent.date || ''} in ${firstEvent.location || ''}`;
+    }
+  }
+  
+  return {
+    items: items,
+    primaryInfo: primaryInfo,
+    additionalInfo: additionalInfo
+  };
 }
