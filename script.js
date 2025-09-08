@@ -830,7 +830,7 @@ function addSocialProfile() {
     </select>
     <input type="text" name="social_handle_${newIndex}" placeholder="Handle/Username" required />
     <input type="number" name="social_followers_${newIndex}" placeholder="Followers" required />
-    <button type="button" class="remove-item" onclick="removeSocialProfile(this)">×</button>
+    <button type="button" class="remove-item" onclick="removeSocialProfile(this)">Remove</button>
   `;
   
   container.appendChild(newItem);
@@ -880,7 +880,7 @@ function addVenue() {
       <option value="other">Other</option>
     </select>
     <input type="number" name="venue_capacity_${newIndex}" placeholder="Maximum Capacity" required />
-    <button type="button" class="remove-item" onclick="removeVenue(this)">×</button>
+    <button type="button" class="remove-item" onclick="removeVenue(this)">Remove</button>
   `;
   
   container.appendChild(newItem);
@@ -911,7 +911,7 @@ function addEvent() {
     <input type="text" name="event_name_${newIndex}" placeholder="Event/Conference Name" required />
     <input type="date" name="event_date_${newIndex}" placeholder="Event Date" required />
     <input type="text" name="event_location_${newIndex}" placeholder="Location" required />
-    <button type="button" class="remove-item" onclick="removeEvent(this)">×</button>
+    <button type="button" class="remove-item" onclick="removeEvent(this)">Remove</button>
   `;
   
   container.appendChild(newItem);
