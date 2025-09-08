@@ -829,7 +829,7 @@ function addSocialProfile() {
       <option value="other">Other</option>
     </select>
     <input type="text" name="social_handle_${newIndex}" placeholder="Handle/Username" required />
-    <input type="number" name="social_followers_${newIndex}" placeholder="Followers" required />
+    <input type="number" name="social_followers_${newIndex}" placeholder="Number of followers" required />
     <button type="button" class="remove-item" onclick="removeSocialProfile(this)">Remove</button>
   `;
   
