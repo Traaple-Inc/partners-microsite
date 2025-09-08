@@ -550,15 +550,13 @@ document.addEventListener('DOMContentLoaded', function () {
         name: formData.get('name'),
         email: email,
         organization: formData.get('organization') || multipleFieldsData.primaryInfo,
-        location: formData.get('location') || null,
+        location: formData.get('location') || JSON.stringify(multipleFieldsData.items),
         phone: formData.get('phone'),
         platform: formData.get('platform') || null,
         propertyType: formData.get('propertyType') || null,
         niche: formData.get('niche') || multipleFieldsData.additionalInfo,
         partnerType: type,
-        referralCode: ref,
-        // Store multiple fields data as JSON string in existing fields to avoid API changes
-        multipleFieldsJson: JSON.stringify(multipleFieldsData.items)
+        referralCode: ref
       };
 
       // Disable submit button during submission

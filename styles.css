@@ -1188,6 +1188,10 @@ body.venue-bg footer {
   background-color: #f9f9f9;
 }
 
+.social-profile-item:first-child {
+  margin-top: 0;
+}
+
 .social-profile-item input[name*="social_followers"] {
   grid-column: 1 / -2;
   grid-row: 2;
@@ -1204,6 +1208,10 @@ body.venue-bg footer {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background-color: #f9f9f9;
+}
+
+.venue-item:first-child {
+  margin-top: 0;
 }
 
 .venue-item select[name*="venue_type"] {
@@ -1227,6 +1235,10 @@ body.venue-bg footer {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background-color: #f9f9f9;
+}
+
+.event-item:first-child {
+  margin-top: 0;
 }
 
 .event-item input[name*="event_location"] {
