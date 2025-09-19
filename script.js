@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
         'Dedicated support to help you maximise your income.'
       ],
       formLabels: {
-        name: 'Your Name',
-        organization: 'Social Media Handle/Username',
-        phone: 'Number of Followers/Subscribers',
+        name: 'Your Name *',
+        organization: 'Social Media Handle/Username *',
+        phone: 'Phone Number *',
         experiencePlaceholder: 'Content Niche (Travel, Food, Lifestyle, etc.)'
       },
       heroImage: 'assets/influencer_hero.jpg',
@@ -152,9 +152,9 @@ document.addEventListener('DOMContentLoaded', function () {
         'We manage bookings, payments and support for you.'
       ],
       formLabels: {
-        name: 'Your Name',
-        organization: 'Hotel/Property Name',
-        phone: 'Number of Rooms',
+        name: 'Your Name *',
+        organization: 'Hotel/Property Name *',
+        phone: 'Number of Rooms *',
         experiencePlaceholder: 'Property Type (Hotel, Resort, etc.)'
       },
       heroImage: 'assets/hotel_hero.jpg',
@@ -209,9 +209,9 @@ document.addEventListener('DOMContentLoaded', function () {
         'We handle marketing, payments and support for you.'
       ],
       formLabels: {
-        name: 'Your Name',
-        organization: 'Venue Name',
-        phone: 'Maximum Capacity',
+        name: 'Your Name *',
+        organization: 'Venue Name *',
+        phone: 'Phone Number *',
         experiencePlaceholder: 'Venue Type (Restaurant, Bar, etc.)'
       },
       heroImage: 'assets/venue_hero.jpg',
@@ -261,9 +261,9 @@ document.addEventListener('DOMContentLoaded', function () {
         'Support for logistics, payments and customer service.'
       ],
       formLabels: {
-        name: 'Name',
-        organization: 'Conference / Event Name',
-        phone: 'Phone Number',
+        name: 'Name *',
+        organization: 'Conference / Event Name *',
+        phone: 'Phone Number *',
         experiencePlaceholder: 'e.g. Tours, Workshops, Activities'
       },
       heroImage: 'assets/conference_hero.jpg',
@@ -300,9 +300,9 @@ document.addEventListener('DOMContentLoaded', function () {
         'Dedicated support to optimise your monetisation strategy.'
       ],
       formLabels: {
-        name: 'Name',
-        organization: 'Blog / Media Name',
-        phone: 'Phone Number',
+        name: 'Name *',
+        organization: 'Blog / Media Name *',
+        phone: 'Phone Number *',
         experiencePlaceholder: 'e.g. Travel, Culture, Food'
       },
       // Fall back to the influencer hero image until a dedicated blog hero is supplied.
@@ -340,9 +340,9 @@ document.addEventListener('DOMContentLoaded', function () {
         'We handle bookings, payments and guest support.'
       ],
       formLabels: {
-        name: 'Name',
-        organization: 'Venue Name',
-        phone: 'Phone Number',
+        name: 'Name *',
+        organization: 'Venue Name *',
+        phone: 'Phone Number *',
         experiencePlaceholder: 'e.g. Bars, Parties, Live Music'
       },
       // Reuse the venue hero until a dedicated nightlife hero image is provided.
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
     platformDropdown?.classList.remove('hidden');
     nicheGroup?.classList.remove('hidden');
     if (platformDropdown) platformDropdown.required = true;
-    if (phoneLabel) phoneLabel.textContent = 'Number of Followers/Subscribers';
+    if (phoneLabel) phoneLabel.textContent = 'Phone Number *';
   } else if (type === 'hotel') {
     platformDropdown?.classList.add('hidden');
     locationGroup?.classList.remove('hidden');
@@ -461,11 +461,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (platformDropdown) platformDropdown.required = false;
     if (locationGroup) locationGroup.querySelector('input').required = true;
     if (propertyTypeGroup) propertyTypeGroup.querySelector('select').required = true;
-    if (phoneLabel) phoneLabel.textContent = 'Maximum Capacity';
+    if (phoneLabel) phoneLabel.textContent = 'Phone Number *';
   } else {
     platformDropdown?.classList.add('hidden');
     if (platformDropdown) platformDropdown.required = false;
-    if (phoneLabel) phoneLabel.textContent = 'Phone Number';
+    if (phoneLabel) phoneLabel.textContent = 'Phone Number *';
   }
 
   // Update secondary CTA copy
