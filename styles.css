@@ -1259,22 +1259,23 @@ body.venue-bg footer {
 
 .remove-item {
   background: transparent !important;
-  color: #ff4444 !important;
+  color: #666666 !important;
   border: none !important;
   border-radius: 0 !important;
   width: auto !important;
   height: auto !important;
   display: inline !important;
   cursor: pointer;
-  font-size: 0.8rem !important;
+  font-size: 1rem !important;
   font-weight: normal !important;
-  text-decoration: underline !important;
+  text-decoration: none !important;
   padding: 0.25rem 0 !important;
   margin-top: 0 !important;
+  font-family: "Font Awesome 6 Free" !important;
 }
 
 .remove-item:hover {
-  color: #cc3333 !important;
+  color: #333333 !important;
 }
 
 .add-item {
