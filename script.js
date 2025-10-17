@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function () {
         location: formData.get('location') || JSON.stringify(multipleFieldsData.items),
         phone: formData.get('phone'),
         platform: formData.get('platform') || null,
-        propertyType: formData.get('propertyType') || null,
+        propertyType: formData.get('propertyType') || formData.get('collaboration_type') || null,
         niche: formData.get('niche') || multipleFieldsData.additionalInfo,
         partnerType: type,
         referralCode: ref
