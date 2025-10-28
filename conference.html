@@ -58,6 +58,32 @@
             <label for="phone">Expected Attendees</label>
             <input type="tel" id="phone" name="phone" />
           </div>
+          <div class="form-group">
+            <label>How would you like to collaborate? *</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="base-partner" name="collaboration_type" value="base-partner" required />
+                <label for="base-partner">
+                  <strong>Base Partner (2% Commission)</strong><br>
+                  <span>Display Traaple QR codes or links in delegate materials and one branded display on-site.</span>
+                </label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="active-partner" name="collaboration_type" value="active-partner" required />
+                <label for="active-partner">
+                  <strong>Active Partner (3% Commission)</strong><br>
+                  <span>Promote Traaple on-site and in event channels, with staff support and multiple placements.</span>
+                </label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="strategic-partner" name="collaboration_type" value="strategic-partner" required />
+                <label for="strategic-partner">
+                  <strong>Strategic Partner (Negotiable Commission)</strong><br>
+                  <span>Integrate Traaple into event systems and co-branded activations.</span>
+                </label>
+              </div>
+            </div>
+          </div>
           <button type="submit" class="cta-button">Click here to get started</button>
         </form>
       </div>
